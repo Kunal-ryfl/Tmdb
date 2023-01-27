@@ -13,7 +13,6 @@ export async function generateStaticParams(){
 
     return data.results.map((movie)=>(
     {movie:toString(movie.id),
-    
     }))
 }
 
@@ -41,7 +40,7 @@ const res =await data.json();
 
 <h1 className='detail-h'>{res.title}</h1> 
 <h2 className='detail-h2'>{res.tagline}</h2>
-<h2 className='detail-h2' style={{color:'rgb(143, 180, 253'}}>Rating :- {(res.vote_average).toFixed(2)}</h2>
+<h2 className='detail-h2' style={{color:'rgb(143, 180, 253'}}>Rating :- {(res.vote_average)}</h2>
 
 <div className='genre'>
   {
