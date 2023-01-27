@@ -1,0 +1,71 @@
+import React from 'react'
+import Image from 'next/image';
+
+//static params for static pages
+// no network overhead
+
+// useEffect
+
+export async function generateStaticParams(){
+    const res = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=f743585fbb67230207bebc2b36df5b02');
+    const data = await res.json();
+    // console.log('data = ',data)
+
+    return data.results.map((movie)=>(
+    {movie:toString(movie.id),
+    
+    }))
+}
+
+export default async function page({params}) {
+  const {movie} = params;
+ const data = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=f743585fbb67230207bebc2b36df5b02`)
+const res =await data.json();
+  // console.log('res = ',res)
+  return (
+    <div className='detail' 
+    >
+      <div 
+        style={{
+          backgroundPosition:'center', backgroundSize:'cover',
+           
+        // background:`url(https://image.tmdb.org/t/p/original${res.backdrop_path})`,
+        
+        backgroundImage:`url(https://image.tmdb.org/t/p/original${res.backdrop_path})`
+        }}
+      className="bg-img">
+        
+<img className='al-img' src={`https://image.tmdb.org/t/p/original${res.poster_path}`}/>
+
+      </div>
+
+<h1 className='detail-h'>{res.title}</h1> 
+<h2 className='detail-h2'>{res.tagline}</h2>
+<h2 className='detail-h2' style={{color:'rgb(143, 180, 253'}}>Rating :- {(res.vote_average).toFixed(2)}</h2>
+
+<div className='genre'>
+  {
+    res.genres?.map((item)=>(
+      <p>{item.name}</p>
+    ))
+  }
+  </div>
+<div className='detail-dsc' >
+  <h2>Overview:</h2>
+<p>{res.overview}</p>
+
+
+<div className='companies'>
+  {
+    res.production_companies?.map((item)=>(
+      <img src={`https://image.tmdb.org/t/p/original${item.logo_path}`} alt=""/>
+    ))
+  }
+  </div>
+
+</div>
+
+    </div>
+  )
+}
+

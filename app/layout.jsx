@@ -1,14 +1,23 @@
 import './globals.css'
+import {Raleway} from '@next/font/google'
+import Nav from './(components)/Nav'
+const rw = Raleway({
+  weight:['400','500','800','900'],
+  preload:false
+})
+
+import { StateContext } from "../context/StateContext";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      {/*
-        <head /> will contain the components returned by the nearest parent
-        head.jsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
-      */}
+    <html className={rw.className}>
       <head />
-      <body>{children}</body>
+      <body>
+        <StateContext>
+        {/* <Nav/> */}
+        {children}
+        </StateContext>
+        </body>
     </html>
   )
 }
