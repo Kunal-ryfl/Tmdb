@@ -1,7 +1,4 @@
 import React from 'react'
-import { CSSProperties } from 'react';
-import ClipLoader from "react-spinners/ClipLoader";
-
 
 const loading = () => {
   return (
