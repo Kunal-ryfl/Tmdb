@@ -58,7 +58,7 @@ const credits =await data1.json();
 
 
 
-  <h2>Cast:-:</h2>
+  <h2 style={{marginTop:'10px'}}>Cast:-:</h2>
 <div className='cast'>
   {
     credits.cast?.map((item)=>(

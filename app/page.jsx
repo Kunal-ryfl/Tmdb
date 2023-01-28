@@ -16,9 +16,14 @@ export default function Home() {
     <>
     <Nav/>
    <div className="home">
-    { popular?.map((item)=>(
+    { 
+    popular.length ===0?<><p>Not found!</p></> :
+    <>
+    {popular?.map((item)=>(
          <Card key={item.id} movie={item}/>
     ))
+    }
+    </>
     }
    </div>
     </>

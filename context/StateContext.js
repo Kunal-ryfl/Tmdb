@@ -12,6 +12,7 @@ export const StateContext = ({ children }) => {
  
     const [popular,setPopular] = useState([]);
     const [active,setActive]= useState(true); 
+    const [search,setSearch]= useState(false); 
     
     const  clickTop = async () => {
     setActive(false);
@@ -22,6 +23,7 @@ export const StateContext = ({ children }) => {
         const data = await res.json();
         // console.log('data = ',data)
         setPopular(data.results);
+        setSearch(false)
 }
 
 const  clickPop = async () => {
@@ -33,7 +35,21 @@ const  clickPop = async () => {
         const data = await res.json();
         // console.log('data = ',data)
         setPopular(data.results);
+        setSearch(false)
 }
+
+
+const submitContact = async (event) => {
+  event.preventDefault();
+  // alert(`So your name is ${event.target.name.value}?`);
+  const query = event.target.name.value;
+  const data = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=f743585fbb67230207bebc2b36df5b02&query=${query}`);
+  const res =await data.json();
+  // console.log(res.results)
+  setPopular(res.results);
+  // setActive(false)
+  setSearch(true)
+};
 
 
 
@@ -71,6 +87,8 @@ useEffect(()=>{
             clickTop,
             clickPop,
             active,
+            submitContact,
+            search,
           }}
         >
           {children}

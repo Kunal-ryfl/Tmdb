@@ -25,6 +25,7 @@ a{
   height: 80px;
   animation: spin 1s linear infinite;
 }
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -48,6 +49,11 @@ border-radius: 30px;
 border: none;
 }
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .nav ul{
   height: 50px;
@@ -61,12 +67,11 @@ border: none;
 .home{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding:  0 15px;
 }
 
 .card{
-  /* height: 400px; */
   width: 200px;
   margin: 15px 3px;
 }
@@ -147,23 +152,60 @@ border-radius: 10px;
 font-size: 15px;
 }
 .cast{
-  /* width: 100%; */
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .cast-card{
 width: 100px;
-margin:5px 2px;
+margin:10px 15px 10px 0;
+display: inline-block;
+overflow: hidden;
+
 }
 
 .cast img{
   width: 100%;
-  /* border-radius: 60px; */
+  border-radius: 10px;
+}
+
+.search-bar{
+  padding: 7px 40px 7px 8px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 50px;
+outline-width: 0;
+}
+
+.search-btn{
+  
+  /* padding: 5px 7px; */
+  /* background-color:rgb(143, 180, 253); */
+  display: none;
+  margin-left: 2px;
+  position: relative;
+  top:5px;
+  left: 10px;
+  /* border-radius: 100px; */
+  font-size: 20px;
+  background: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 600px) {
+  
+  .nav{
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .search-bar{
+    width: 100%;
+    margin: 10px auto;
+    
+  }
   .cast-card{
     width: 50px;
   }
