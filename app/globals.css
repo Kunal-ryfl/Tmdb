@@ -8,6 +8,12 @@
 ::-webkit-scrollbar{
   width: 0%;
 }
+::-webkit-scrollbar-thumb:horizontal{
+  background: rgb(69, 69, 69);
+  border-radius: 10px;
+  height: 0%;
+  /* width: 100%; */
+}
 body{
   background-color: black;
   color: white;
@@ -53,6 +59,7 @@ border: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 50px 0 20px 0;
 }
 
 .nav ul{
@@ -75,6 +82,14 @@ border: none;
   width: 200px;
   margin: 15px 3px;
 }
+
+.in-card{
+  display: inline-block;
+  overflow: hidden;
+  width: 100px;
+  margin: 15px 3px;
+}
+
 .h-small{
   font-size: 12px;
 }
@@ -151,6 +166,7 @@ margin-right: 5px;
 border-radius: 10px;
 font-size: 15px;
 }
+
 .cast{
   overflow: auto;
   white-space: nowrap;
@@ -170,7 +186,7 @@ overflow: hidden;
 }
 
 .search-bar{
-  padding: 7px 40px 7px 8px;
+  padding: 9px 70px 7px 8px;
   border: none;
   border-radius: 5px;
   margin-right: 50px;
@@ -204,6 +220,7 @@ outline-width: 0;
   .search-bar{
     width: 100%;
     margin: 10px auto;
+    padding: 13px 40px 13px 10px;
     
   }
   .cast-card{

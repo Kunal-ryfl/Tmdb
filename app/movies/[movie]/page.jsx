@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
+import InlineCard from '@/app/(components)/InlineCard';
 
 //static params for static pages
 // no network overhead
@@ -20,8 +21,10 @@ export default async function page({params}) {
   const {movie} = params;
  const data = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=f743585fbb67230207bebc2b36df5b02`)
  const data1 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/credits?api_key=f743585fbb67230207bebc2b36df5b02`)
+ const data2 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/recommendations?api_key=f743585fbb67230207bebc2b36df5b02`)
 const res =await data.json();
 const credits =await data1.json();
+const rec =await data2.json();
 
   // console.log('res = ',res)
   return (
@@ -77,6 +80,22 @@ const credits =await data1.json();
     ))
   }
   </div>
+  
+{
+ (rec.results.length > 0) ? <>
+  <h2 style={{marginTop:'10px'}}>Recommended:-:</h2>
+ </>:<></> 
+}
+
+  <div className='cast'>
+  {
+    rec.results?.map((item)=>(
+      <InlineCard key={item.id} movie={item}/>
+    ))
+  }
+  </div>
+ 
+
 
 </div>
 

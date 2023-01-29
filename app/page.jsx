@@ -8,16 +8,22 @@ import React, {
 
 import { useStateContext } from "../context/StateContext";
 import Nav from './(components)/Nav';
+import Trending from './(components)/Trending';
+import Upcoming from './(components)/Upcoming';
 
 export default function Home() {
-  const {popular,setPopular} = useStateContext();
+  const {popular,setPopular,search} = useStateContext();
   
   return (
     <>
+ 
+<Trending/>
+
     <Nav/>
    <div className="home">
     { 
-    popular.length ===0?<><p>Not found!</p></> :
+    (search && popular.length ===0 )?<>
+    <p>Not found!</p></> :
     <>
     {popular?.map((item)=>(
          <Card key={item.id} movie={item}/>
@@ -26,6 +32,7 @@ export default function Home() {
     </>
     }
    </div>
+   <Upcoming/>
     </>
      )
      
