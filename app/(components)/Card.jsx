@@ -11,6 +11,8 @@ const Card = ({movie:{title,poster_path,id,release_date}}) => {
     <Link href={`/movies/${id}`}>
     <div className='card'> 
         {/* <img  onLoad={<p>loading img...</p>} loading='lazy' src={` https://image.tmdb.org/t/p/original${poster_path}`} /> */}
+        {
+             poster_path &&
         <Image
  loader={myLoader}
  src={poster_path}
@@ -20,6 +22,7 @@ const Card = ({movie:{title,poster_path,id,release_date}}) => {
  placeholder="blur"
  blurDataURL="/place1.jpg"
 />
+}
         <h1 className='h-small'>{title}</h1>
         <p>{release_date} </p>
     </div>
