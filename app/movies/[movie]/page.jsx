@@ -19,9 +19,9 @@ import InlineCard from '@/app/(components)/InlineCard';
 
 export default async function page({params}) {
   const {movie} = params;
- const data = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=f743585fbb67230207bebc2b36df5b02`)
- const data1 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/credits?api_key=f743585fbb67230207bebc2b36df5b02`)
- const data2 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/recommendations?api_key=f743585fbb67230207bebc2b36df5b02`)
+ const data = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.NEXT_PUBLIC_API}`)
+ const data1 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/credits?api_key=${process.env.NEXT_PUBLIC_API}`)
+ const data2 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/recommendations?api_key=${process.env.NEXT_PUBLIC_API}`)
 const res =await data.json();
 const credits =await data1.json();
 const rec =await data2.json();
