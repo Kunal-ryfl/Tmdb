@@ -61,7 +61,7 @@ const rec =await data2.json();
 
 
 
-  <h2 style={{marginTop:'10px'}}>Cast:-:</h2>
+  <h2 style={{marginTop:'10px'}}>Cast:-</h2>
 <div className='cast'>
   {
     credits.cast?.map((item)=>(
@@ -82,10 +82,10 @@ const rec =await data2.json();
   </div>
   
 {
- (rec.results?.length > 0) ? <>
-  <h2 style={{marginTop:'10px'}}>Recommended:-:</h2>
+  (rec.results?.length > 0) ? <> 
+  <h2 style={{marginTop:'10px'}}>Recommended:-</h2>
  </>:<></> 
-}
+ } 
 
   <div className='cast'>
   {
