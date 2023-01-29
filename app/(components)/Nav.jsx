@@ -23,7 +23,7 @@ export default function Nav() {
         </ul>
 
            <form  onSubmit={submitContact}>
-            <input className='search-bar' id='name'  placeholder="search movies"/>
+            <input autoComplete='off' className='search-bar' id='name'  placeholder="search movies"/>
             <button className='search-btn' type='submit' ><AiOutlineSearch/> </button>
             </form> 
         
