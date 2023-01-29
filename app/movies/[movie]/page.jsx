@@ -2,20 +2,18 @@ import React from 'react'
 import Image from 'next/image';
 import InlineCard from '@/app/(components)/InlineCard';
 
-//static params for static pages
+// static params for static pages
 // no network overhead
 
-// useEffect
+export async function generateStaticParams(){
+    const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=f743585fbb67230207bebc2b36df5b02`);
+    const data = await res.json();
+    // console.log('data = ',data)
 
-// export async function generateStaticParams(){
-//     const res = await fetch('https://api.themoviedb.org/3/movie/popular?api_key=f743585fbb67230207bebc2b36df5b02');
-//     const data = await res.json();
-//     // console.log('data = ',data)
-
-//     return data.results.map((movie)=>(
-//     {movie:toString(movie.id),
-//     }))
-// }
+    return data.results.map((movie)=>(
+    {movie:toString(movie.id),
+    }))
+}
 
 export default async function page({params}) {
   const {movie} = params;
