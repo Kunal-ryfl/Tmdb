@@ -1,5 +1,4 @@
 import React from 'react'
-import Card from './Card';
 import InlineCard from './InlineCard';
 import { useStateContext } from "../../context/StateContext";
 

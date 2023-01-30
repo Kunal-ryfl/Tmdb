@@ -8,7 +8,7 @@ const myLoader = ({src}) => {
 
 const Card = ({movie:{title,poster_path,id,release_date}}) => {
   return (
-    <Link href={`/movies/${id}`}>
+    <Link href={`/movies/${id}`} >
     <div className='card'> 
         {/* <img  onLoad={<p>loading img...</p>} loading='lazy' src={` https://image.tmdb.org/t/p/original${poster_path}`} /> */}
         {

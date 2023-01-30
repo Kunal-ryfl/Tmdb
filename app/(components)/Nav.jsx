@@ -6,7 +6,7 @@ import {AiOutlineSearch} from 'react-icons/ai'
 
 
 export default function Nav() {
-  const {clickTop,clickPop,active,search,submitContact} = useStateContext();
+  const {clickTop,clickPop,active,search,submitContact,showSearch,clickSearch} = useStateContext();
   return (
     <div className='nav'>
         <ul> 
@@ -19,14 +19,17 @@ export default function Nav() {
             (active || search )?<> <li> <button className='btn' onClick={()=>clickTop()}>Top-Rated</button> </li></>:<> <li> <button className='act-btn' onClick={()=>clickTop()}>Top-Rated</button> </li></>
            }
             
+           <li><button onClick={()=>clickSearch()} className='search-btn'><AiOutlineSearch/></button></li> 
 
         </ul>
 
+{ showSearch?<> 
+
            <form  onSubmit={submitContact}>
             <input autoComplete='off' className='search-bar' id='name'  placeholder="search movies"/>
-            <button className='search-btn' type='submit' ><AiOutlineSearch/> </button>
             </form> 
-        
+</>:<></>  
+}
         </div>
   )
 }
