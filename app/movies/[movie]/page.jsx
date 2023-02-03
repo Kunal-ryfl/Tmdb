@@ -1,5 +1,4 @@
 import React, { use } from 'react'
-import Image from 'next/image';
 import InlineCard from '@/app/(components)/InlineCard';
 
 
@@ -94,14 +93,14 @@ const rec = data2;
   }
   </div>
 
-<div className='companies'>
+{/* <div className='companies'>
   {
     res.production_companies?.map((item)=>(
       <img loading='lazy' src={`https://image.tmdb.org/t/p/original${item.logo_path}`} alt=""/>
     ))
   }
   </div>
-  
+   */}
 {
   (rec.results?.length > 0) ? <> 
   <h2 style={{marginTop:'10px'}}>Recommended:-</h2>
