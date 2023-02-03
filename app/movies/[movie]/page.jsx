@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { use } from 'react'
 import Image from 'next/image';
 import InlineCard from '@/app/(components)/InlineCard';
+
 
 // static params for static pages
 // no network overhead
@@ -15,14 +16,36 @@ export async function generateStaticParams(){
     }))
 }
 
-export default async function page({params}) {
+
+export default  function page({params}) {
   const {movie} = params;
- const data = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.NEXT_PUBLIC_API}`)
- const data1 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/credits?api_key=${process.env.NEXT_PUBLIC_API}`)
- const data2 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/recommendations?api_key=${process.env.NEXT_PUBLIC_API}`)
-const res =await data.json();
-const credits =await data1.json();
-const rec =await data2.json();
+  async function getMovie(){
+    const res = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.NEXT_PUBLIC_API}`);
+    return res.json();
+  }
+  async function getCredits(){
+    const res = await fetch(`https://api.themoviedb.org/3/movie/${movie}/credits?api_key=${process.env.NEXT_PUBLIC_API}`)
+    return res.json();
+  }
+  async function getRec(){
+    const res = await fetch(`https://api.themoviedb.org/3/movie/${movie}/recommendations?api_key=${process.env.NEXT_PUBLIC_API}`);
+    return res.json();
+  }
+  
+  let a = getMovie()
+  let b = getCredits()
+  let c = getRec()
+
+  console.log("a = ",a);
+//  const data = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.NEXT_PUBLIC_API}`)
+const data = use(a);
+//  const data1 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/credits?api_key=${process.env.NEXT_PUBLIC_API}`)
+const data1 =  use(b)
+// const data2 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/recommendations?api_key=${process.env.NEXT_PUBLIC_API}`)
+const data2 = use(c);
+const res = data;
+const credits = data1;
+const rec = data2;
 
   // console.log('res = ',res)
   return (
