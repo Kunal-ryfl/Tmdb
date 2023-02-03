@@ -5,7 +5,6 @@ import React, {
     useState,
     useEffect,
   } from "react";
-
   
   const Context = createContext();
   
@@ -24,7 +23,6 @@ import React, {
     const  clickTop = async () => {
     setActive(false);
     const res =  await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_API}`,{
-
         next:{revalidate:180}}
         
         );
@@ -70,25 +68,25 @@ const submitContact = async (event) => {
 
 useEffect(()=>{
     getData()
-    console.log("Api",process.env.NEXT_PUBLIC_API)
+    // console.log("Api",process.env.NEXT_PUBLIC_API)
 },[]);
 
   
     async function getData() {
-          const   res =  await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API}`,{ next:{revalidate:180}});
-          const   res2 =  await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.NEXT_PUBLIC_API}`,{ next:{revalidate:180}});
-          const   res3 =  await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API}`,{ next:{revalidate:180}});
+          const res =  await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API}`,{ next:{revalidate:180}});
+          // const   res2 =  await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.NEXT_PUBLIC_API}`,{ next:{revalidate:180}});
+          // const   res3 =  await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API}`,{ next:{revalidate:180}});
     
   
       const data = await res.json();
-      const data1 = await res2.json();
-      const data2 = await res3.json();
+      // const data1 = await res2.json();
+      // const data2 = await res3.json();
     //   console.log('data = ',data)
       setPopular(data.results);
-      setTrending(data1.results);
-      setupcoming(data2.results);
+      // setTrending(data1.results);
+      // setupcoming(data2.results);
       
-      setloading(false);
+    
     }
 
      

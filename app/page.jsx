@@ -1,5 +1,4 @@
 "use client"
-import { Suspense, use, useEffect, useState } from 'react';
 import Card from './(components)/Card';
 import React, {
 } from "react";
@@ -11,12 +10,12 @@ import Upcoming from './(components)/Upcoming';
 
 export default function Home() {
   const {popular,search} = useStateContext();
-  
+  console.log("pop = ",popular)
   return (
     <>
 
-
 <Trending/>
+
 
     <Nav/>
 
