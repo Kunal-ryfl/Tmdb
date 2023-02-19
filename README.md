@@ -6,13 +6,13 @@ Get a look of this project [**LIVE**](https://tmdb-hant.vercel.app/)
 
 Features:- 
 ```
-Implemented Search .
-Various categories.
+Implemented Search.
+Various categories like trending,popular,etc.
 ```
 Technologies:- 
 ```
 Next.js 13
-Tailwind
+Tailwind CSS
 TMDB API
 ```
 
