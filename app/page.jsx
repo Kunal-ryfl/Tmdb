@@ -20,7 +20,7 @@ export default function Home() {
     <Nav/>
 
   
-   <div className=" grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 py-4">
+   <div className=" px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 py-4">
     { 
     (search && popular.length ===0 )?<>
     <p className=' text-red-600 px-2'>Not found!</p></> :

@@ -66,10 +66,10 @@ const rec = data2;
 <h2 className='text-sm sm:text-xl'>{res.tagline} <span className=' ml-2 text-gray-300 text-xs'>{res.runtime} mins</span><span className=' text-green-400 ml-2  text-xs'>{res.status}</span></h2>
 <h2 className='text-sm sm:text-xl text-cyan-400 font-medium' >Rating :- {(res.vote_average)}</h2>  
 
-<div className=' my-4 flex'>
+<div className=' my-4 flex flex-wrap'>
   {
     res.genres?.map((item)=>(
-      <p className=' mx-1  border-[thin]  border-white px-2 py-1 rounded-full text-xs'>{item.name}</p>
+      <p className=' mx-1 my-1 border-[thin]  border-white px-2 py-1 rounded-full text-xs'>{item.name}</p>
     ))
   }
 
