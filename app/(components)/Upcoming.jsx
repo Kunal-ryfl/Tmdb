@@ -16,8 +16,8 @@ let a = getUp()
     const res= use(a);
     return (
       <div>
-      <h2 style={{margin:'20px 0px 10px 10px'}}> Upcomming</h2>
-      <div className='cast'>
+      <h2 className='  text-2xl sm:text-3xl py-3 px-2 '> Upcomming</h2>
+      <div className=' overflow-auto whitespace-nowrap'>
              {res.results?.map((item)=>(
               < InlineCard key={item.id} movie={item}/>
               ))

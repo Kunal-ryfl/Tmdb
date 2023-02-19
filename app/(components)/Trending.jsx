@@ -17,9 +17,9 @@ export default function Trending() {
   return (
     <div>
 
-    <h2 style={{margin:'20px 0px 10px 10px'}}> Trending</h2>
+    <h2 className=' text-2xl sm:text-3xl py-3 px-2 '> Trending</h2>
     
-    <div className='cast'>
+    <div className=' overflow-auto whitespace-nowrap '>
         {data.results?.map((item)=>(
           <InlineCard key={item.id} movie={item}/>
             ))

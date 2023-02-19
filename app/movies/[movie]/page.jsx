@@ -1,6 +1,6 @@
 import React, { use } from 'react'
 import InlineCard from '@/app/(components)/InlineCard';
-
+import Image from 'next/image';
 
 // static params for static pages
 // no network overhead
@@ -35,7 +35,7 @@ export default  function page({params}) {
   let b = getCredits()
   let c = getRec()
 
-  console.log("a = ",a);
+  // console.log("a = ",a);
 //  const data = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.NEXT_PUBLIC_API}`)
 const data = use(a);
 //  const data1 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/credits?api_key=${process.env.NEXT_PUBLIC_API}`)
@@ -50,64 +50,64 @@ const rec = data2;
   return (
     <div className='detail' 
     >
-      <div 
-        style={{
-          backgroundPosition:'center', backgroundSize:'cover',
-           
-        // background:`url(https://image.tmdb.org/t/p/original${res.backdrop_path})`,
-        
-        backgroundImage:`url(https://image.tmdb.org/t/p/original${res.backdrop_path})`
-        }}
-      className="bg-img">
-        
-<img className='al-img' src={`https://image.tmdb.org/t/p/original${res.poster_path}`}/>
+      <div className=" relative min-h-screen grid grid-cols-1 md:grid-cols-3" 
+      >
+
+<Image  src={`https://image.tmdb.org/t/p/original${res.backdrop_path}`}  layout='fill' objectFit='cover' objectPosition='center'  alt="" className=' h-full filter brightness-50 h-48 blur-md '/>        
+
+<div className=' flex justify-center items-center z-10 p-8'>
+<Image src={`https://image.tmdb.org/t/p/original${res.poster_path}`}  height={1000} width={300} alt="" className=' rounded-xl '/>
+
+</div>
+
+<div className='p-2 sm:col-span-2 flex flex-col justify-center z-10'>
+
+<h1 className=' text-2xl font-bold sm:text-4xl '>{res.title}</h1> 
+<h2 className='text-sm sm:text-xl'>{res.tagline} <span className=' ml-2 text-gray-300 text-xs'>{res.runtime} mins</span><span className=' text-green-400 ml-2  text-xs'>{res.status}</span></h2>
+<h2 className='text-sm sm:text-xl text-cyan-400 font-medium' >Rating :- {(res.vote_average)}</h2>  
+
+<div className=' my-4 flex'>
+  {
+    res.genres?.map((item)=>(
+      <p className=' mx-1  border-[thin]  border-white px-2 py-1 rounded-full text-xs'>{item.name}</p>
+    ))
+  }
+
+  
+  </div>
+
+  <h2 className=' text-sm sm:text-xl font-semibold'>Overview:</h2>
+<p className=' text-sm '>{res.overview}</p>
+
+</div>
+    
+
+{/* <img className='al-img' src={`https://image.tmdb.org/t/p/original${res.poster_path}`}/> */}
 
       </div>
 
-<h1 className='detail-h'>{res.title}</h1> 
-<h2 className='detail-h2'>{res.tagline}</h2>
-<h2 className='detail-h2' style={{color:'rgb(143, 180, 253'}}>Rating :- {(res.vote_average)}</h2>
-
-<div className='genre'>
-  {
-    res.genres?.map((item)=>(
-      <p>{item.name}</p>
-    ))
-  }
-  </div>
 <div className='detail-dsc' >
-  <h2>Overview:</h2>
-<p>{res.overview}</p>
 
 
-
-  <h2 style={{marginTop:'10px'}}>Cast:-</h2>
-<div className='cast'>
+  <h2 className=' text-sm sm:text-xl font-semibold pl-2'>Cast:-</h2>
+<div className=' overflow-auto  whitespace-nowrap'>
   {
     credits.cast?.map((item)=>(
-   <div className="cast-card">
-      <img loading='lazy' src={`https://image.tmdb.org/t/p/original${item.profile_path}`} alt=""/>
-      <p> {item.name}</p>
+   <div className=" inline-flex  flex-col justify-center items-center py-2   mx-1">
+      <img className=' w-20   rounded' loading='lazy' src={`https://image.tmdb.org/t/p/original${item.profile_path}`} alt=""/>
+      <p className=' text-[8px] sm:text-xs'> {item.name}</p>
    </div>
     ))
   }
   </div>
 
-{/* <div className='companies'>
-  {
-    res.production_companies?.map((item)=>(
-      <img loading='lazy' src={`https://image.tmdb.org/t/p/original${item.logo_path}`} alt=""/>
-    ))
-  }
-  </div>
-   */}
 {
   (rec.results?.length > 0) ? <> 
-  <h2 style={{marginTop:'10px'}}>Recommended:-</h2>
+  <h2 className=' text-sm sm:text-xl font-semibold pl-2 my-2'>Recommended:-</h2>
  </>:<></> 
  } 
 
-  <div className='cast'>
+  <div className=' overflow-auto  whitespace-nowrap'>
   {
     rec.results?.map((item)=>(
       <InlineCard key={item.id} movie={item}/>

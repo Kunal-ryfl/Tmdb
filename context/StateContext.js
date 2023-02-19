@@ -49,7 +49,7 @@ const  clickSearch = async () => {
   setshowSearch(true);
   setSearch(true);
   setActive(false);
-  console.log(showSearch)
+  // console.log(showSearch)
 }
 
 
@@ -57,9 +57,9 @@ const submitContact = async (event) => {
   event.preventDefault();
   // alert(`So your name is ${event.target.name.value}?`);
   const query = event.target.name.value;
+  // console.log("query = ",query)
   const data = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_API}&query=${query}`);
   const res =await data.json();
-  // console.log(res.results)
   setPopular(res.results);
   // setActive(false)
   setSearch(true)

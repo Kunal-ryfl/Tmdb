@@ -10,7 +10,7 @@ const myLoader = ({src}) => {
 const InlineCard = ({movie:{title,poster_path,id,release_date}}) => {
   return (
     <Link href={`/movies/${id}`}>
-    <div className='in-card'> 
+    <div className=' inline-block'> 
         {/* <img loading='lazy' src={` https://image.tmdb.org/t/p/original${poster_path}`} /> */}
         {
              poster_path &&
@@ -19,7 +19,7 @@ const InlineCard = ({movie:{title,poster_path,id,release_date}}) => {
           src={poster_path}
           alt="img"
           height={160}
-          width={350}
+          width={150}
           placeholder="blur"
           blurDataURL="/place1.jpg"
 />

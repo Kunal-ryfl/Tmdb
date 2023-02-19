@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html className={rw.className}>
       <head />
-      <body>
+      <body className=' bg-black text-white'>
         <StateContext>
      
 
