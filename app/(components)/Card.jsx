@@ -11,7 +11,7 @@ const Card = ({movie:{title,poster_path,id,release_date}}) => {
 
 <Link href={`/movies/${id}`} >
 
-    <div className='card hover:filter hover:brightness-50'> 
+    <div className='card overflow-hidden'> 
         
         {
           poster_path &&
@@ -23,10 +23,10 @@ const Card = ({movie:{title,poster_path,id,release_date}}) => {
           width={1000}
           placeholder="blur"
           blurDataURL="/place1.jpg"
-          className=' rounded'
+          className='transition duration-5 ease-in-out rounded hover:scale-105'
 />
 }
-        <h1 className=''>{title}</h1>
+        <h1 className=' mt-3'>{title}</h1>
         <p className=' text-xs'>{release_date} </p>
     </div>
           

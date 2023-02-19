@@ -14,9 +14,9 @@ export default function RootLayout({ children }) {
       <head />
       <body className=' bg-black text-white'>
         <StateContext>
-     
 
-        {children}
+
+        {children}     
   
      
         </StateContext>
