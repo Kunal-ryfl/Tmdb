@@ -14,8 +14,7 @@ import React, {
     
     const [popular,setPopular] = useState([]);
     const [active,setActive]= useState(true); 
-    const [search,setSearch]= useState(false); 
-
+    const [search,setSearch]= useState(false);
     const [showSearch,setshowSearch]= useState(false); 
     
 
@@ -43,6 +42,7 @@ const  clickPop = async () => {
         setshowSearch(false);
         setPopular(data.results);
         setSearch(false)
+        
 }
 
 const  clickSearch = async () => {  

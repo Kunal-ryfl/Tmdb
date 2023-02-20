@@ -7,6 +7,7 @@ import { useStateContext } from "../context/StateContext";
 import Nav from './(components)/Nav';
 import Trending from './(components)/Trending';
 import Upcoming from './(components)/Upcoming';
+import Skeleton from './(components)/Skeleton';
 
 export default function Home() {
   const {popular,search} = useStateContext();
@@ -19,6 +20,7 @@ export default function Home() {
 
     <Nav/>
 
+   {/* <Skeleton/> */}
   
    <div className=" px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 py-4">
     { 

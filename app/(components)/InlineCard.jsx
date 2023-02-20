@@ -20,8 +20,8 @@ const InlineCard = ({movie:{title,poster_path,id,release_date}}) => {
           alt="img"
           height={160}
           width={150}
-          placeholder="blur"
-          blurDataURL="/place1.jpg"
+          // placeholder="blur"
+          // blurDataURL="/place1.jpg"
           className=' rounded-xl hover:filter hover:brightness-50'
 />
         }
