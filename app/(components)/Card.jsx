@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useStateContext } from "../../context/StateContext";
 import Skeleton from './Skeleton'
 
 
@@ -11,12 +12,16 @@ const myLoader = ({src}) => {
 }
 
 const Card = ({movie:{title,poster_path,id,release_date}}) => {
+  const {loading} = useStateContext();  
+  // console.log('loading = ',loading)
   
   return (
+
     
     <Link href={`/movies/${id}`} >
 
     <div className='card overflow-hidden'> 
+      {loading && <Skeleton/>}
           {
           poster_path  &&
            <Image

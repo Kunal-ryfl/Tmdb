@@ -7,7 +7,7 @@ import React, {
     use,
   } from "react";
 
-  
+
   const Context = createContext();
   
   export const StateContext = ({ children }) => {
@@ -16,7 +16,7 @@ import React, {
     const [active,setActive]= useState(true); 
     const [search,setSearch]= useState(false);
     const [showSearch,setshowSearch]= useState(false); 
-    
+        
 
 
     const  clickTop = async () => {
@@ -68,15 +68,14 @@ const submitContact = async (event) => {
 
 useEffect(()=>{
     getData()
-    console.log("Api",process.env.NEXT_PUBLIC_API)
+    // console.log("Api",process.env.NEXT_PUBLIC_API)
 },[]);
 
   
     async function getData() {
           const res =  await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API}`,{ next:{revalidate:180}});
           
-      const data = await res.json();
-      
+      const data = await res.json();      
       setPopular(data.results);
       
     }
