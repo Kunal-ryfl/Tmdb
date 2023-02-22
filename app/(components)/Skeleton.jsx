@@ -14,7 +14,7 @@ const Skeleton = () => {
 //     </div>
 //   </div>
 // </div>
-<div className=' animate-pulse hfull w-full rounded bg-gray-500'>
+<div className=' animate-pulse h-40 w-full rounded bg-gray-500'>
 
 </div>
   )
