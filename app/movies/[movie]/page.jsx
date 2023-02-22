@@ -1,3 +1,4 @@
+// 'use client'
 import React, { use } from 'react'
 import InlineCard from '@/app/(components)/InlineCard';
 import Image from 'next/image';
@@ -16,7 +17,8 @@ export async function generateStaticParams(){
 }
 
 
-export default  function page({params}) {
+export default function page({params}) {
+
   const {movie} = params;
   async function getMovie(){
     const res = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.NEXT_PUBLIC_API}`);

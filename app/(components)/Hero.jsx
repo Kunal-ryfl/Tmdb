@@ -6,19 +6,19 @@ import { useStateContext } from '@/context/StateContext'
 const main = () => {
   const arr = []
   const {popular,search} = useStateContext();
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  // const [mounted, setMounted] = useState(false)
+  // useEffect(() => {
+  //   setMounted(true)
+  // }, [])
 
-  if (!mounted) {
-    return <div className='px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 py-4'> 
-    {[...Array(20).keys()].map(()=>(
-      <Skeleton/>
-    ))}
+  // if (!mounted) {
+  //   return <div className='px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 py-4'> 
+  //   {[...Array(20).keys()].map(()=>(
+  //     <Skeleton/>
+  //   ))}
     
-     </div>
-  }
+  //    </div>
+  // }
 
   return (
     <div className=" px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 py-4">
