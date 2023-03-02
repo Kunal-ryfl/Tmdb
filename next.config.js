@@ -1,22 +1,19 @@
 /** @type {import('next').NextConfig} */
+// const { withPlaiceholder } = require("@plaiceholder/next");
 const nextConfig = {
   experimental: {
     appDir: true,
     scrollRestoration:true,
-  },
+  }, 
   images: {
     remotePatterns: [
       {
-        hostname: "**.amazonaws.com",
-      },
-      {
         hostname: "image.tmdb.org",
       },
-      {
-        hostname: "**.unsplash.com",
-      },
     ],
+    unoptimized:true,
   },
+  
 }
 
 module.exports = nextConfig
