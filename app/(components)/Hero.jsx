@@ -4,7 +4,7 @@ import Skeleton from './Skeleton'
 import Card from './Card'
 import { useStateContext } from '@/context/StateContext'
 
-const main = () => {
+const Main = () => {
   const {popular,search} = useStateContext();
   // const [mounted, setMounted] = useState(false)
   // useEffect(() => {
@@ -36,4 +36,4 @@ const main = () => {
   )
 }
 
-export default main
+export default Main
