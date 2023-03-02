@@ -55,7 +55,7 @@ const rec = data2;
       <div className=" relative min-h-screen grid grid-cols-1 md:grid-cols-3" 
       >
 
-<Image  src={`https://image.tmdb.org/t/p/original${res.backdrop_path}`} priority  layout='fill' objectFit='cover' objectPosition='center'  alt="" className=' h-full filter brightness-50 h-48 blur-md '/>        
+<Image  src={`https://image.tmdb.org/t/p/original${res.backdrop_path}`}  layout='fill' objectFit='cover' objectPosition='center'  alt="" className=' h-full filter brightness-50 h-48 blur-md '/>        
 
 <div className=' flex justify-center items-center z-10 p-8'>
 <Image src={`https://image.tmdb.org/t/p/original${res.poster_path}`}  height={1000} width={300} alt="" className=' rounded-xl '/>
@@ -124,4 +124,3 @@ const rec = data2;
     </div>
   )
 }
-
