@@ -71,7 +71,7 @@ const rec = data2;
 <div className=' my-4 flex flex-wrap'>
   {
     res.genres?.map((item)=>(
-      <p className=' mx-1 my-1 border-[thin]  border-white px-2 py-1 rounded-full text-xs'>{item.name}</p>
+      <p className=' mx-1 my-1 border-[thin]  border-white px-2 py-1 rounded-full text-xs' key={item.id}>{item.name}</p>
     ))
   }
 
@@ -95,7 +95,7 @@ const rec = data2;
 <div className=' overflow-auto  whitespace-nowrap'>
   {
     credits.cast?.map((item)=>(
-   <div className=" inline-flex  flex-col justify-center items-center py-2   mx-1">
+   <div className=" inline-flex  flex-col justify-center items-center py-2   mx-1" key={item.id}>
       <img className=' w-20   rounded' loading='lazy' src={`https://image.tmdb.org/t/p/original${item.profile_path}`} alt=""/>
       <p className=' text-[8px] sm:text-xs'> {item.name}</p>
    </div>
@@ -105,7 +105,7 @@ const rec = data2;
 
 {
   (rec.results?.length > 0) ? <> 
-  <h2 className=' text-sm sm:text-xl font-semibold pl-2 my-2'>Recommended:-</h2>
+  <h2 className=' text-sm sm:text-xl font-semibold pl-2 my-2' >Recommended:-</h2>
  </>:<></> 
  } 
 
