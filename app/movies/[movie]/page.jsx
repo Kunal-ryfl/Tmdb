@@ -1,5 +1,5 @@
 // 'use client'
-import React, { use } from 'react'
+import React from 'react'
 import InlineCard from '../../(components)/InlineCard';
 import Image from 'next/image';
 
@@ -17,7 +17,7 @@ export async function generateStaticParams(){
 }
 
 
-export default function Page({params}) {
+export default async function Page({params}) {
 
   const {movie} = params;
   async function getMovie(){
@@ -33,17 +33,13 @@ export default function Page({params}) {
     return res.json();
   }
   
-  let a = getMovie()
-  let b = getCredits()
-  let c = getRec()
-
   // console.log("a = ",a);
 //  const data = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.NEXT_PUBLIC_API}`)
-const data = use(a);
+const data = await getMovie();
 //  const data1 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/credits?api_key=${process.env.NEXT_PUBLIC_API}`)
-const data1 =  use(b)
+const data1 =  await getCredits()
 // const data2 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/recommendations?api_key=${process.env.NEXT_PUBLIC_API}`)
-const data2 = use(c);
+const data2 = await getRec();
 const res = data;
 const credits = data1;
 const rec = data2;
