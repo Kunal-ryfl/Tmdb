@@ -1,13 +1,13 @@
 // 'use client'
 import React, { use } from 'react'
-import InlineCard from '@/app/(components)/InlineCard';
+import InlineCard from '../../(components)/InlineCard';
 import Image from 'next/image';
 
 // static params for static pages
 // no network overhead
 
 export async function generateStaticParams(){
-    const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=f743585fbb67230207bebc2b36df5b02`);
+    const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API}`);
     const data = await res.json();
     // console.log('data = ',data)
 

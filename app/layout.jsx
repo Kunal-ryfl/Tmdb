@@ -1,26 +1,19 @@
-import './globals.css'
-import {Raleway} from 'next/font/google'
-const rw = Raleway({
-  weight:['400','500','800','900'],
-  preload:false
-})
+import "./globals.css";
+import { Open_Sans } from "next/font/google";
+const rw = Open_Sans({
+  weight: ["300", "400", "700", "800"],
+  subsets: ["latin"],
+});
 
 import { StateContext } from "../context/StateContext";
 
-export default function RootLayout({ children }) {
-  
+export default function RootLayout({ children, modal }) {
   return (
     <html className={rw.className}>
       <head />
-      <body className=' bg-black text-white'>
-        <StateContext>
-
-
-        {children}     
-  
-     
-        </StateContext>
-        </body>
+      <body id="next" className=" bg-black text-white">
+        <StateContext>{children}</StateContext>
+      </body>
     </html>
-  )
+  );
 }
