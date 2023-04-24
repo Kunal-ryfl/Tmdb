@@ -4,15 +4,25 @@ import InlineCard from '../../(components)/InlineCard';
 import Image from 'next/image';
 
 // static params for static pages
-// no network overhead
 
 export async function generateStaticParams(){
     const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API}`);
-    const data = await res.json();
-    // console.log('data = ',data)
+    const res1 = await fetch(
+      `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.NEXT_PUBLIC_API}`,
+      { next: { revalidate: 180 } }
+    );
+    const res2 = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API}`,{ next:{revalidate:180}});
 
-    return data.results.map((movie)=>(
-    {movie:toString(movie.id),
+    const data = await res.json();
+    const data1 = await res1.json();
+    const data2 = await res2.json();
+
+    const main = [...data.results,...data1.results,...data2.results]
+
+
+   
+
+    return main.map((movie)=>({movie:toString(movie.id),
     }))
 }
 
@@ -20,6 +30,8 @@ export async function generateStaticParams(){
 export default async function Page({params}) {
 
   const {movie} = params;
+ 
+  
   async function getMovie(){
     const res = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.NEXT_PUBLIC_API}`);
     return res.json();
@@ -34,7 +46,7 @@ export default async function Page({params}) {
   }
   
   // console.log("a = ",a);
-//  const data = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.NEXT_PUBLIC_API}`)
+//  const data = (await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.NEXT_PUBLIC_API}`)).json()
 const data = await getMovie();
 //  const data1 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/credits?api_key=${process.env.NEXT_PUBLIC_API}`)
 const data1 =  await getCredits()
@@ -44,7 +56,7 @@ const res = data;
 const credits = data1;
 const rec = data2;
 
-  // console.log('res = ',res)
+  // console.log('res = ',data)
   return (
     <div className='detail' 
     >
@@ -92,7 +104,7 @@ const rec = data2;
   {
     credits.cast?.map((item)=>(
    <div className=" inline-flex  flex-col justify-center items-center py-2   mx-1" key={item.id}>
-      <img className=' w-20   rounded' loading='lazy' src={`https://image.tmdb.org/t/p/original${item.profile_path}`} alt=""/>
+      <Image className='   rounded'  width={80} height={0} src={`https://image.tmdb.org/t/p/original${item.profile_path}`} alt=""/>
       <p className=' text-[8px] sm:text-xs'> {item.name}</p>
    </div>
     ))

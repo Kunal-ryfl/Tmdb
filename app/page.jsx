@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <>
       <Trending />
-      <Nav />
+      <Nav/>
       <Hero />
       <Upcoming />
     </>

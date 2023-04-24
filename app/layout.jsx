@@ -6,13 +6,16 @@ const rw = Open_Sans({
 });
 
 import { StateContext } from "../context/StateContext";
+import Trending from "./(components)/Trending";
 
-export default function RootLayout({ children, modal }) {
+export default function RootLayout({ children, Popular }) {
   return (
     <html className={rw.className}>
       <head />
       <body id="next" className=" bg-black text-white">
-        <StateContext>{children}</StateContext>
+        <StateContext>
+                    {children}
+          </StateContext>
       </body>
     </html>
   );
