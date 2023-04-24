@@ -13,7 +13,7 @@ export default async function Trending() {
   const data = await getTrending();
   // const {trending} = useStateContext();
   return (
-    <div>
+    <div className=" ">
       <h2 className=" text-2xl sm:text-3xl py-4 px-2 font-bold ">Trending</h2>
       <div className=" overflow-auto whitespace-nowrap ">
         {data.results?.map((item) => (

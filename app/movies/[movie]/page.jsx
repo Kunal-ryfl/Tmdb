@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 import React from 'react'
 import InlineCard from '../../(components)/InlineCard';
 import Image from 'next/image';
@@ -19,9 +19,6 @@ export async function generateStaticParams(){
 
     const main = [...data.results,...data1.results,...data2.results]
 
-
-   
-
     return main.map((movie)=>({movie:toString(movie.id),
     }))
 }
@@ -29,8 +26,7 @@ export async function generateStaticParams(){
 
 export default async function Page({params}) {
 
-  const {movie} = params;
- 
+  const {movie} = params; 
   
   async function getMovie(){
     const res = await fetch(`https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.NEXT_PUBLIC_API}`);
@@ -52,6 +48,7 @@ const data = await getMovie();
 const data1 =  await getCredits()
 // const data2 = await fetch(`https://api.themoviedb.org/3/movie/${movie}/recommendations?api_key=${process.env.NEXT_PUBLIC_API}`)
 const data2 = await getRec();
+
 const res = data;
 const credits = data1;
 const rec = data2;
@@ -63,10 +60,14 @@ const rec = data2;
       <div className=" relative min-h-screen grid grid-cols-1 md:grid-cols-3" 
       >
 
-<Image  src={`https://image.tmdb.org/t/p/original${res.backdrop_path}`}  fill='true' style={{objectFit:'cover'}}  alt="" className='  filter brightness-50 h-48 blur-md '/>        
+<Image               
+placeholder='blur'
+blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRm knyJckliyjqTzSlT54b6bk+h0R//2Q=="
+
+priority='true' src={`https://image.tmdb.org/t/p/original${res.backdrop_path}`} quality={1}  fill='true' style={{objectFit:'cover'}}  alt="" className='  filter brightness-50 h-48 blur-md '/>        
 
 <div className=' flex justify-center items-center z-10 p-8'>
-<Image src={`https://image.tmdb.org/t/p/original${res.poster_path}`}  height={1000} width={300} alt="" className=' rounded-xl '/>
+<Image quality={50} priority src={`https://image.tmdb.org/t/p/original${res.poster_path}`}  height={1000} width={300} alt="" className=' rounded-xl '/>
 
 </div>
 
