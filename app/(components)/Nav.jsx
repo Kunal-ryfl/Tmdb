@@ -14,7 +14,7 @@ export default function Nav() {
       setColor(false);
     } 
   }
-  window.addEventListener("scroll", changeColor);
+  if(typeof window !== undefined) window.addEventListener("scroll", changeColor);
 
   const {
     active,
