@@ -31,16 +31,7 @@ export default function Nav() {
     clickSearch,
   } = useStateContext();
   return (
-    <div  className={ color?"  bg-neutral-900 fixed z-50 w-full  top-0 flex flex-col sm:flex-row    justify-between ":" fixed z-50 w-full  top-0 flex flex-col sm:flex-row    justify-between "}>
-      <ul className="px-2 w-screen sm:w-auto py-2 flex items-center ">
-        
-        {/* <li className={!showSearch ? "mx-2  flex items-center" : " hidden"}>
-          <button  onFocusCapture={() => clickSearch()} className="">
-            <AiOutlineSearch />
-          </button>
-        </li> */}
-
-        
+    <div  className={ color?"  bg-neutral-900 fixed z-50 w-full  top-0 flex flex-col sm:flex-row    justify-between ":" fixed z-50 w-full  top-0 flex flex-col sm:flex-row    justify-between "}>  
           <>
             <form onChange={submitContact}>
               <input
@@ -52,7 +43,7 @@ export default function Nav() {
             </form>
           </>
         
-      </ul>
+      
     </div>
   );
 }

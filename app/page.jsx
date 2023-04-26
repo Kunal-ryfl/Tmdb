@@ -1,19 +1,30 @@
 "use client"
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import Nav from "./(components)/Nav";
 import Trending from "./(components)/Trending";
 import Upcoming from "./(components)/Upcoming";
 import Hero from "./(components)/Hero";
 import { useStateContext } from "../context/StateContext";
-import InlineCard from "./(components)/InlineCard";
 import Card from "./(components)/Card";
+import Skeleton from "./(components)/Skeleton";
 export default function Home() {
   const {
     search,searchArray
   } = useStateContext();
 
- 
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return <div className='px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 py-4'>
+   <Skeleton/>
+
+     </div>
+  }
   return (
+    
     <>
       <Nav/>
       { !search ? <>
