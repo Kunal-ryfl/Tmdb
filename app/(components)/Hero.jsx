@@ -61,7 +61,7 @@ export default  function Main() {
        </Link>
       </div>
           {popular.results?.map((item) => (
-            <Suspense fallback={<div className=" h-96 animate-pulse rounded bg-white/60 "></div>}>
+            <Suspense key={item.id} fallback={<div className=" h-96 animate-pulse rounded bg-white/60 "></div>}>
             <Card key={item.id} movie={item} />
             </Suspense>
           ))}
