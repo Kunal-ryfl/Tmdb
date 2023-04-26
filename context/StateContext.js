@@ -12,38 +12,11 @@ import React, {
   
   export const StateContext = ({ children }) => {
     
-    const [popular,setPopular] = useState([]);
-    const [active,setActive]= useState(true); 
+    // const [active,setActive]= useState(true); 
     const [search,setSearch]= useState(false);
     const [showSearch,setshowSearch]= useState(false); 
-        
-
-
-    const  clickTop = async () => {
-    setActive(false);
-    const res =  await fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.NEXT_PUBLIC_API}`,{
-        next:{revalidate:180}}
-        
-        );
-        const data = await res.json();
-        // console.log('data = ',data)
-        setshowSearch(false);
-        setPopular(data.results);
-        setSearch(false)
-}
-
-const  clickPop = async () => {
-    setActive(true);
-    const res =  await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API}`,{
-        next:{revalidate:180}}
-        );
-        const data = await res.json();
-        // console.log('data = ',data)
-        setshowSearch(false);
-        setPopular(data.results);
-        setSearch(false)
-        
-}
+    const [searchArray,setSearchArray] = useState([]);    
+  
 
 const  clickSearch = async () => {  
   setshowSearch(true);
@@ -54,33 +27,28 @@ const  clickSearch = async () => {
 
 
 const submitContact = async (event) => {
-  event.preventDefault();
+  // event.preventDefault();
   // alert(`So your name is ${event.target.name.value}?`);
-  const query = event.target.name.value;
-  // console.log("query = ",query)
+  const query = event.target.value;
+  
+  setSearch(true)
+  if(query.length <1){
+
+    console.log(search)
+      setSearch(false)
+    console.log("empty")
+    console.log(search)
+    return;
+  } 
+    
+  console.log("query = ",query)
   const data = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.NEXT_PUBLIC_API}&query=${query}`);
   const res =await data.json();
-  setPopular(res.results);
+  setSearchArray(res)
   // setActive(false)
-  setSearch(true)
 };
 
 
-useEffect(()=>{
-    getData()
-    // console.log("Api",process.env.NEXT_PUBLIC_API)
-},[]);
-
-  
-    async function getData() {
-          const res =  await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API}`,{ next:{revalidate:180}});
-          
-      const data = await res.json();      
-      setPopular(data.results);
-      
-    }
-
-     
     //  console.log(active)
 
     
@@ -88,15 +56,12 @@ useEffect(()=>{
     return (
         <Context.Provider
           value={{
-            popular,
-            setPopular,
-            clickTop,
-            clickPop,
-            active,
+           
             submitContact,
             search,
             clickSearch,
             showSearch,
+            searchArray
           
           }}
         >

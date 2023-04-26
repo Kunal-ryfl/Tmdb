@@ -1,13 +1,22 @@
 "use client";
-import React from "react";
+import React,{useState} from "react";
 import Link from "next/link";
 import { useStateContext } from "../../context/StateContext";
 import { AiOutlineSearch } from "react-icons/ai";
 
 export default function Nav() {
+
+  const [color, setColor] = useState(false); 
+  const changeColor = () => {
+    if (window.scrollY >= 30) {
+      setColor(true);
+    } else {
+      setColor(false);
+    } 
+  }
+  window.addEventListener("scroll", changeColor);
+
   const {
-    clickTop,
-    clickPop,
     active,
     search,
     submitContact,
@@ -15,79 +24,27 @@ export default function Nav() {
     clickSearch,
   } = useStateContext();
   return (
-    <div className=" flex flex-col sm:flex-row   py-1 justify-between ">
+    <div  className={ color?"  bg-neutral-900 fixed z-50 w-full  top-0 flex flex-col sm:flex-row    justify-between ":" fixed z-50 w-full  top-0 flex flex-col sm:flex-row    justify-between "}>
       <ul className="px-2 w-screen sm:w-auto py-2 flex items-center ">
-        {active && !search ? (
-          <>
-            <li className=" mr-2 md:mr-4 ">
-              {" "}
-              <button
-                className=" border-b-2 border-red-600 py-1 text-sm"
-                onClick={() => clickPop()}
-              >
-                Popular
-              </button>{" "}
-            </li>
-          </>
-        ) : (
-          <>
-            <li className="mr-2 md:mr-4">
-              {" "}
-              <button className="py-1 text-sm" onClick={() => clickPop()}>
-                Popular
-              </button>{" "}
-            </li>
-          </>
-        )}
-        {active || search ? (
-          <>
-            {" "}
-            <li>
-              {" "}
-              <button
-                className="mr-2 md:mr-4  py-1 text-sm"
-                onClick={() => clickTop()}
-              >
-                Top-Rated
-              </button>{" "}
-            </li>
-          </>
-        ) : (
-          <>
-            {" "}
-            <li>
-              {" "}
-              <button
-                className="mr-2 border-b-2 md:mr-4 border-red-600 py-1 text-sm"
-                onCl
-                ick={() => clickTop()}
-              >
-                Top-Rated
-              </button>{" "}
-            </li>
-          </>
-        )}
-
-        <li className={!showSearch ? "mx-2  flex items-center" : " hidden"}>
-          <button onClick={() => clickSearch()} className="">
+        
+        {/* <li className={!showSearch ? "mx-2  flex items-center" : " hidden"}>
+          <button  onFocusCapture={() => clickSearch()} className="">
             <AiOutlineSearch />
           </button>
-        </li>
+        </li> */}
 
-        {showSearch ? (
+        
           <>
-            <form onSubmit={submitContact}>
+            <form onChange={submitContact}>
               <input
                 autoComplete="off"
-                className=" ml-2 w-auto pl-1 py-2 bg-slate-700 my-2 rounded"
+                className=" ml-2 w-auto pl-1 py-2  bg-transparent border-[1px] border-white backdrop-blur-md my-2 rounded"
                 id="name"
                 placeholder="search movies"
               />
             </form>
           </>
-        ) : (
-          <></>
-        )}
+        
       </ul>
     </div>
   );

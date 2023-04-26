@@ -8,10 +8,9 @@ import Image from 'next/image';
 export async function generateStaticParams(){
     const res = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API}`);
     const res1 = await fetch(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.NEXT_PUBLIC_API}`,
-      { next: { revalidate: 180 } }
+      `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.NEXT_PUBLIC_API}`
     );
-    const res2 = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API}`,{ next:{revalidate:180}});
+    const res2 = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.NEXT_PUBLIC_API}`);
 
     const data = await res.json();
     const data1 = await res1.json();
