@@ -13,13 +13,13 @@ export default function Nav() {
       setColor(false);
     } 
   }
-
   useEffect(() => {
     if (typeof window !== 'undefined') {
       // window is available
       window.addEventListener("scroll", changeColor);
     }
   }, []);
+
 
 
 
