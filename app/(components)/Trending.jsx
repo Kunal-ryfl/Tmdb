@@ -14,7 +14,7 @@ export default function Trending() {
   const data = use(a);
   // const {trending} = useStateContext();
   return (
-    <div className=" ">
+    <div className=" relative  overflow-hidden px-2">
       <h2 className=" text-base sm:text-xl py-4 px-2 font-bold ">Trending</h2>
       <div className=" overflow-auto whitespace-nowrap ">
         {data.results?.map((item) => (

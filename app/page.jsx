@@ -6,6 +6,7 @@ import Upcoming from "./(components)/Upcoming";
 import Hero from "./(components)/Hero";
 import { useStateContext } from "../context/StateContext";
 import Card from "./(components)/Card";
+import InlineCard from "./(components)/InlineCard";
 import Skeleton from "./(components)/Skeleton";
 export default function Home() {
   const {

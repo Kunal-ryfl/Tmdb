@@ -16,15 +16,19 @@ import React, {
     const [search,setSearch]= useState(false);
     const [showSearch,setshowSearch]= useState(false); 
     const [searchArray,setSearchArray] = useState([]);    
+    const [movies, setMovies] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+ 
+
   
 
 const  clickSearch = async () => {  
-  setshowSearch(true);
-  setSearch(true);
-  setActive(false);
+  !showSearch? setshowSearch(true):setshowSearch(false)
+  // setSearch(true);
+  // setActive(false);
   // console.log(showSearch)
 }
-
 
 const submitContact = async (event) => {
   // event.preventDefault();
@@ -56,7 +60,7 @@ const submitContact = async (event) => {
     return (
         <Context.Provider
           value={{
-           
+            movies,
             submitContact,
             search,
             clickSearch,

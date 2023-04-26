@@ -16,7 +16,7 @@ export default  function Upcoming() {
   // const {upcoming} = useStateContext();
   const res = use(a);
   return (
-    <div>
+    <div className="px-2">
       <h2 className="  text-base sm:text-xl py-4 px-2 font-bold ">
         {" "}
         Upcomming
