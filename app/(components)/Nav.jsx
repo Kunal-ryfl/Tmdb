@@ -1,6 +1,5 @@
 "use client";
-import React,{useState} from "react";
-import Link from "next/link";
+import React,{useState,useEffect} from "react";
 import { useStateContext } from "../../context/StateContext";
 import { AiOutlineSearch } from "react-icons/ai";
 
@@ -14,7 +13,15 @@ export default function Nav() {
       setColor(false);
     } 
   }
-  if(typeof window !== undefined) window.addEventListener("scroll", changeColor);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // window is available
+      window.addEventListener("scroll", changeColor);
+    }
+  }, []);
+
+
 
   const {
     active,
