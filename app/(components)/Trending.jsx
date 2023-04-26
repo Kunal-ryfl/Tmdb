@@ -10,7 +10,7 @@ async function getTrending() {
 }
 
 let a = getTrending()
-export default  function Trending() {
+export default function Trending() {
   const data = use(a);
   // const {trending} = useStateContext();
   return (

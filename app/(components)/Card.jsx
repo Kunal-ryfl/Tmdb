@@ -4,13 +4,11 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const Card = ({ movie: { title, poster_path, id, release_date } }) => {
-  const [loading, setLoading] = useState(true);
-  // console.log('loading B = ',loading)
-
+const Card =   ({ movie: { title, poster_path, id, release_date } }) => {
+  
   return (
     <>
-      {/* {loading && <Skeleton/>} */}
+      
         <div className="grid grid-rows-10 overflow-hidden ">
             <Link href={`/movies/${id}`}>
           <div className="  aspect-[4/6]   relative row-span-9 overflow-hidden">

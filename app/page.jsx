@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect,useState } from "react";
+import React, { Suspense, useEffect,useState } from "react";
 import Nav from "./(components)/Nav";
 import Trending from "./(components)/Trending";
 import Upcoming from "./(components)/Upcoming";
@@ -12,23 +12,25 @@ export default function Home() {
     search,searchArray
   } = useStateContext();
 
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  // const [mounted, setMounted] = useState(false)
+  // useEffect(() => {
+  //   setMounted(true)
+  // }, [])
 
-  if (!mounted) {
-    return <div className='px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 py-4'>
-   <Skeleton/>
+  // if (!mounted) {
+  //   return <div className='px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 py-4'>
+  //  <Skeleton/>
 
-     </div>
-  }
+  //    </div>
+  // }
   return (
     
     <>
       <Nav/>
       { !search ? <>
+      <Suspense fallback={<Skeleton />}>
       <Hero />
+      </Suspense>
       <Trending />
       <Upcoming />
     </>:

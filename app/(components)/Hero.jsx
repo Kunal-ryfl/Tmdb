@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Card from "./Card";
 import { useStateContext } from "../../context/StateContext";
 import Skeleton from './Skeleton'
@@ -61,10 +61,11 @@ export default  function Main() {
        </Link>
       </div>
           {popular.results?.map((item) => (
+            <Suspense fallback={<div className=" h-96 animate-pulse rounded bg-white/60 "></div>}>
             <Card key={item.id} movie={item} />
+            </Suspense>
           ))}
      
     </div>
   );
 };
-
