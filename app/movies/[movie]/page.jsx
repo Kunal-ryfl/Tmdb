@@ -63,7 +63,7 @@ const rec = data2;
 placeholder='blur'
 blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRm knyJckliyjqTzSlT54b6bk+h0R//2Q=="
 
-priority='true' src={`https://image.tmdb.org/t/p/original${res.backdrop_path}`} quality={1}  fill='true' style={{objectFit:'cover'}}  alt="" className='  filter brightness-50 h-48 blur-md '/>        
+priority src={`https://image.tmdb.org/t/p/original${res.backdrop_path}`} quality={1}  fill='true' style={{objectFit:'cover'}}  alt="" className='  filter brightness-50 h-48 blur-md '/>        
 
 <div className=' flex justify-center items-center z-10 p-8'>
 <Image quality={50} priority src={`https://image.tmdb.org/t/p/original${res.poster_path}`}  height={1000} width={300} alt="" className=' rounded-xl '/>

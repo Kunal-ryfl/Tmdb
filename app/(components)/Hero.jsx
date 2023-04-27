@@ -26,7 +26,7 @@ export default async function Main() {
   // const { popular, search } = useStateContext();
   const fetch =  await getPopular()
  const popular = fetch.popular
- console.log("p = ",popular)
+//  console.log("p = ",popular)
 
   // const [mounted, setMounted] = useState(false)
   // useEffect(() => {

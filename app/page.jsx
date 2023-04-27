@@ -9,7 +9,7 @@ import Card from "./(components)/Card";
 import InSkel from '../app/(components)/InSkel'
 import Skeleton from "./(components)/Skeleton";
 export default function Home() {
-  const { search, searchArray } = useStateContext();
+  const { search, searchArray ,showSearch} = useStateContext();
 
   // const [mounted, setMounted] = useState(false)
   // useEffect(() => {
@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      {!search ? (
+      {!search || showSearch   ? (
         <>
           {/* <Hero /> */}
           <Suspense fallback={<InSkel/>}>

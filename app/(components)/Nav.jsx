@@ -8,19 +8,19 @@ import {RiMovie2Line} from 'react-icons/ri'
 export default function Nav() {
 
   const [color, setColor] = useState(false); 
-  // const changeColor = () => {
-  //   if (window.scrollY >= 30) {
-  //     setColor(true);
-  //   } else {
-  //     setColor(false);
-  //   } 
-  // }
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     // window is available
-  //     window.addEventListener("scroll", changeColor);
-  //   }
-  // }, []);
+  const changeColor = () => {
+    if (window.scrollY >= 30) {
+      setColor(true);
+    } else {
+      setColor(false);
+    } 
+  }
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      // window is available
+      window.addEventListener("scroll", changeColor);
+    }
+  }, []);
 
   const {
     active,
