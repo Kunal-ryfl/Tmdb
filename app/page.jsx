@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      {!search || showSearch   ? (
+      {!search || !showSearch   ? (
         <>
           {/* <Hero /> */}
           <Suspense fallback={<InSkel/>}>

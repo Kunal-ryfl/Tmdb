@@ -8,24 +8,24 @@ import {use} from "react"
 import Image from "next/image";
 import {BsLink45Deg} from 'react-icons/bs'
 import Link from "next/link";
-import {getPopular} from '../../lib/fetcher'
 
-// async function getPopular() {
-//   const res =  await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API}`,{ cache: 'no-store' } );
-//   return res.json();
-// }
+
+async function getPopular() {
+  const res =  await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API}`,{ cache: 'no-store' } );
+  return res.json();
+}
 
 function get_random (list) {
   return list[Math.floor((Math.random()*list.length))];
 }
 
 
-// let a = getPopular()
+let a = getPopular()
 
-export default async function Main() {
+export default  function Main() {
   // const { popular, search } = useStateContext();
-  const fetch =  await getPopular()
- const popular = fetch.popular
+  // const fetch =  await getPopular()
+ const popular = use(a) 
 //  console.log("p = ",popular)
 
   // const [mounted, setMounted] = useState(false)
@@ -42,7 +42,7 @@ export default async function Main() {
   //    </div>
   // }
 
-  const random = get_random(popular);
+  const random = get_random(popular.results);
   return (
     <div className="  relative px-3 grid  pt-[400px]">
       <div  className=" -z-10  w-screen absolute top-0 h-screen">
@@ -69,7 +69,7 @@ export default async function Main() {
       <h2 className=" text-base sm:text-xl py-4 px-2 font-bold ">Popular</h2>
 
       <div className=" overflow-auto whitespace-nowrap ">
-          {popular?.map((item) => (
+          {popular.results?.map((item) => (
             
             <InlineCard key={item.id} movie={item} />
             
