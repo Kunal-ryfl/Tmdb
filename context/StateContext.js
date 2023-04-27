@@ -19,11 +19,8 @@ import React, {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
- 
 
-  
-
-const  clickSearch = async () => {  
+const  clickSearch =  () => {  
   !showSearch? setshowSearch(true):setshowSearch(false)
   // setSearch(true);
   // setActive(false);

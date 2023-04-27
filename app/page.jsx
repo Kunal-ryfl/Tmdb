@@ -1,17 +1,15 @@
-"use client"
-import React, { Suspense, useEffect,useState } from "react";
+"use client";
+import React, { Suspense, useEffect, useState } from "react";
 import Nav from "./(components)/Nav";
 import Trending from "./(components)/Trending";
 import Upcoming from "./(components)/Upcoming";
 import Hero from "./(components)/Hero";
 import { useStateContext } from "../context/StateContext";
 import Card from "./(components)/Card";
-import InlineCard from "./(components)/InlineCard";
+import InSkel from '../app/(components)/InSkel'
 import Skeleton from "./(components)/Skeleton";
 export default function Home() {
-  const {
-    search,searchArray
-  } = useStateContext();
+  const { search, searchArray } = useStateContext();
 
   // const [mounted, setMounted] = useState(false)
   // useEffect(() => {
@@ -24,27 +22,33 @@ export default function Home() {
 
   //    </div>
   // }
+
+
+  const DataComponent = React.lazy(() => import('./(components)/Hero'));
+
+
   return (
-    
     <>
-      <Nav/>
-      { !search ? <>
-      <Suspense fallback={<Skeleton />}>
-      <Hero />
+      <Nav />
+      {!search ? (
+        <>
+          {/* <Hero /> */}
+          <Suspense fallback={<InSkel/>}>
+        <DataComponent />
       </Suspense>
-      <Trending />
-      <Upcoming />
-    </>:
-
-    <div className="  absolute top-20 ">
-      <div className="  relative px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 py-4 ">
-      {searchArray?.results?.map((item)=>(
-       <Card key={item.id} movie={item} />
-        ))}
-
-    </div>
-    </div>
-      }
+      
+          <Trending />
+          <Upcoming />
+        </>
+      ) : (
+        <div className="  absolute top-20 ">
+          <div className="  relative px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 py-4 ">
+            {searchArray?.results?.map((item) => (
+              <Card key={item.id} movie={item} />
+            ))}
+          </div>
+        </div>
+      )}
     </>
   );
 }

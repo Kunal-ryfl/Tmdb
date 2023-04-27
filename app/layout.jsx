@@ -10,13 +10,11 @@ import { StateContext } from "../context/StateContext";
 export default function RootLayout({ children, Popular }) {
   return (
     <html className={rw.className}>
-      <head />
-      <body id="next" className=" bg-neutral-900 text-white">
-        <StateContext>
-                    {children}
-                  
-          </StateContext> 
-      </body>
+      <StateContext>
+        <body id="next" className=" bg-neutral-900 text-white">
+          {children}
+        </body>
+      </StateContext>
     </html>
   );
 }

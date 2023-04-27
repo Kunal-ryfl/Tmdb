@@ -1,20 +1,14 @@
-import React from 'react'
+import React from "react";
 
 const InSkel = () => {
   return (
-    <div class=" inline-block shadow rounded-md p-4 max-w-sm w-full mx-auto">
-    <div class="animate-pulse flex space-x-4">
-      <div class="rounded-full bg-gray-400 h-12 w-12"></div>
-      <div class="flex-1 space-y-4 py-1">
-        <div class="h-4 bg-gray-400 rounded w-3/4"></div>
-        <div class="space-y-2">
-          <div class="h-4 bg-gray-400 rounded"></div>
-          <div class="h-4 bg-gray-400 rounded w-5/6"></div>
-        </div>
-      </div>
+    <>
+    <div className=" px-4">
+      <div className=" w-[250px] mt-20 rounded md:w-[400px] h-32 bg-neutral-600 animate-pulse"></div>
+      <div className=" w-[150px] rounded md:w-[300px] delay-75 mt-2 h-28 bg-neutral-600 animate-pulse"></div>
     </div>
-  </div>
-  )
-}
+    </>
+  );
+};
 
-export default InSkel
+export default InSkel;
