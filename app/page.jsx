@@ -37,11 +37,9 @@ export default function Home() {
         <DataComponent />
       </Suspense>
       
-          <Trending />
-          <Upcoming />
         </>
       ) : (
-        <div className="  absolute top-20 ">
+        <div className="sticky  pt-10 ">
           <div className="  relative px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 py-4 ">
             {searchArray?.results?.map((item) => (
               <Card key={item.id} movie={item} />

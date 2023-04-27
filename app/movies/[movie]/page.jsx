@@ -56,13 +56,14 @@ const rec = data2;
   return (
     <div className='detail' 
     >
-      <div className=" relative min-h-screen grid grid-cols-1 md:grid-cols-3" 
+      <div className="   relative h-screen w-screen grid grid-cols-1 md:grid-cols-3" 
       >
+
+
 
 <Image               
 placeholder='blur'
 blurDataURL="data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRm knyJckliyjqTzSlT54b6bk+h0R//2Q=="
-
 priority src={`https://image.tmdb.org/t/p/original${res.backdrop_path}`} quality={1}  fill='true' style={{objectFit:'cover'}}  alt="" className='  filter brightness-50 h-48 blur-md '/>        
 
 <div className=' flex justify-center items-center z-10 p-8'>
@@ -87,7 +88,7 @@ priority src={`https://image.tmdb.org/t/p/original${res.backdrop_path}`} quality
   </div>
 
   <h2 className=' text-sm sm:text-xl font-semibold'>Overview:</h2>
-<p className=' text-sm '>{res.overview}</p>
+<p className=' line-clamp-4 text-sm '>{res.overview}</p>
 
 </div>
     

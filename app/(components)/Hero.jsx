@@ -8,6 +8,10 @@ import {use} from "react"
 import Image from "next/image";
 import {BsLink45Deg} from 'react-icons/bs'
 import Link from "next/link";
+import InSkel from "./InSkel";
+import Trending from "./Trending";
+import Upcoming from "./Upcoming";
+
 
 
 async function getPopular() {
@@ -28,23 +32,20 @@ export default  function Main() {
  const popular = use(a) 
 //  console.log("p = ",popular)
 
-  // const [mounted, setMounted] = useState(false)
-  // useEffect(() => {
-  //   setMounted(true)
-  // }, [])
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
-  // if (!mounted) {
-  //   return <div className='px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 py-4'>
-  //   {[...Array(20).keys()].map(()=>(
-  //     <Skeleton/>
-  //   ))}
-
-  //    </div>
-  // }
+  if (!mounted) {
+    return <InSkel/>
+  }
 
   const random = get_random(popular.results);
   return (
-    <div className="  relative px-3 grid  pt-[400px]">
+    <>
+    
+    <div className="   relative px-3 grid  pt-[400px]">
       <div  className=" -z-10  w-screen absolute top-0 h-screen">
 
 
@@ -63,7 +64,7 @@ export default  function Main() {
         </div>
         <p className=" mt-4  line-clamp-4  text-sm md:text-base">{random.overview}</p>
        <Link href={`movies/${random.id}`}>
-        <button className=" mt-2 bg-white flex items-center rounded-sm px-2 py-1 font-bold text-black"><BsLink45Deg /> Open</button>
+        <button className=" mt-2 bg-white flex items-center rounded px-2 py-1 font-bold text-black"><BsLink45Deg /> Open</button>
        </Link>
       </div>
       <h2 className=" text-base sm:text-xl py-4 px-2 font-bold ">Popular</h2>
@@ -77,5 +78,8 @@ export default  function Main() {
           </div>
      
     </div>
+    <Trending/>
+    <Upcoming/>
+    </>
   );
 };
