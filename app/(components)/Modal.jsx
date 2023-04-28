@@ -69,28 +69,29 @@ export default function MyModal({ movie }) {
      <div className=" px-3 pb-3 md:px-6 md:pb-6 pt-3   " >
                   <Dialog.Title
                     as="h3"
-                    className="text-lg font-bold leading-6 text-white"
+                    className="text-lg  font-semibold   leading-6 text-white"
                   >
                     {movie.title}
                   </Dialog.Title>
                   <Dialog.Description>
-                    <div className="  font-semibold text-sm flex ">
-                      <p className="  text-green-600 mr-3">
+                    <div className=" gap-3  my-3 items-end font-semibold text-sm flex ">
+                      <p className="  text-green-600 ">
                         {movie.vote_average} average
                       </p>
                       <p>{movie.release_date}</p>
+                      <p  className=" border-[1px] text-center  w-8 border-neutral-400   text-neutral-400  text-xs p-1 uppercase">{movie.original_language}</p>
                     </div>
                   </Dialog.Description>
 
 
                   <div className="mt-2">
-                    <p className="text-sm line-clamp-6 text-white">{movie.overview}</p>
+                    <p className="line-clamp-3 text-xs text-slate-700 dark:text-slate-50 sm:text-sm">{movie.overview}</p>
                   </div>
 
 
                   <div className=" flex   items-baseline mt-4">
 
-   <p className=" font-semibold text-base  ">Genre:</p>
+   <p className=" font-semibold text-base  text-neutral-400  ">Genre:</p>
               {
     movie.genres?.map((item)=>(
       <p className=' ml-2 text-xs ' key={item.id}>{item.name}</p>

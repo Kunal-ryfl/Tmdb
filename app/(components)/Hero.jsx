@@ -56,15 +56,16 @@ export default  function Main() {
 
 
       <div className=" px-4 md:px-10 py-2 absolute max-w-[330px] md:max-w-[800px] top-20 md:top-32  ">
-        <h1 className=" text-[24px]  md:text-3xl font-bold">{random.title}</h1> 
+        <h1 className=" text-[24px] mb-2  md:text-3xl font-bold">{random.title}</h1> 
         <div className="  font-semibold text-sm flex " >
 
         <p className="  text-green-600 mr-3"> {random.vote_average} average</p>
         <p>{random.release_date}</p>
+        
         </div>
-        <p className=" mt-4  line-clamp-4  text-sm md:text-base">{random.overview}</p>
+        <p className=" my-4 line-clamp-4 text-sm text-gray-300 md:text-base">{random.overview}</p>
        <Link href={`movies/${random.id}`}>
-        <button className=" mt-2 bg-white flex items-center rounded px-2 py-1 font-bold text-black"><BsLink45Deg /> Open</button>
+        <button className="  bg-white flex items-center rounded px-2 py-1 font-bold text-black"><BsLink45Deg /> Open</button>
        </Link>
       </div>
       <h2 className=" text-base sm:text-xl py-4 px-2 font-bold ">Popular</h2>

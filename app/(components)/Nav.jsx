@@ -32,7 +32,7 @@ export default function Nav() {
     clickSearch,
   } = useStateContext();
   return (
-    <div  className={ color?"  py-2 px-4 bg-neutral-900 fixed z-50 w-full  top-0 flex  sm:flex-row items-center   justify-between ":" py-2 px-4 fixed justify-between items-center   z-50 w-full  top-0 flex  sm:flex-row    "}>  
+    <div  className={ color?"   py-2 px-4 bg-neutral-900 fixed z-50 w-full  top-0 flex  sm:flex-row items-center   justify-between ":" py-2 px-4 fixed justify-between items-center   z-50 w-full  top-0 flex  sm:flex-row    "}>  
           
           <RiMovie2Line className="  text-2xl  md:text-4xl fill-red-700"/>
           
@@ -44,7 +44,7 @@ export default function Nav() {
           
       
 
-           <form className={show?"   transition duration-5 ease-in-out  relative ":"  opacity-0 transition duration-5 ease-in-out  relative "} onChange={submitContact}>
+           <form className={show?"   transition duration-5 ease-in-out  relative ":" w-0 overflow-hidden transition duration-5 ease-in-out  relative "} onChange={submitContact}>
               <input
                 autoComplete="off"
                 className="    pl-1 py-2 text-white w-40  text-sm md:w-60  rounded-sm    bg-transparent/5   border-[1px] border-white backdrop-blur-md  "
