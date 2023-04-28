@@ -18,9 +18,10 @@ TMDB API
 
 ScreenShots:-
 
-![Screenshot (184)](https://user-images.githubusercontent.com/73430123/219934673-606b4082-572a-4d66-8b5c-4313d9ca9943.png)
-![Screenshot (185)](https://user-images.githubusercontent.com/73430123/219934678-fbe59d6c-61fb-4081-bd8f-a131cd675c0f.png)
+![Screenshot (302)](https://user-images.githubusercontent.com/73430123/235165423-ac993a04-6b5a-4e7f-bd75-cc6500614bd3.png)
+![Screenshot (301)](https://user-images.githubusercontent.com/73430123/235165451-3ad4364b-bb4e-4087-93e5-af93da82f34a.png)
 ![Screenshot (186)](https://user-images.githubusercontent.com/73430123/219934688-29ec3208-7e20-42e3-b185-3487e94b13c5.png)
+
 
 
 ## Getting Started
