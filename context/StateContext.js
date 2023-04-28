@@ -21,10 +21,7 @@ import React, {
 
 
 const  clickSearch =  () => {  
-  !showSearch? setshowSearch(true):setshowSearch(false)
-  // setSearch(true);
-  // setActive(false);
-  // console.log(showSearch)
+ setshowSearch(!showSearch)
 }
 
 const submitContact = async (event) => {

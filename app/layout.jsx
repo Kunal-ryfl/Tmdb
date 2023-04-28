@@ -8,15 +8,17 @@ const rw = Inter({
 
 import { StateContext } from "../context/StateContext";
 
-export default function RootLayout({ children, Popular }) {
+export default function RootLayout({ children, modal }) {
   return (
     <html className={rw.className}>
-        <body id="next" className=" bg-neutral-900 text-white">
       <StateContext>
+        <body id="next" className=" bg-neutral-900 text-white">
           {children}
-      </StateContext>
+          {modal}
           <Footer/>
         </body>
+        
+      </StateContext>
     </html>
   );
 }

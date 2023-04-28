@@ -43,7 +43,7 @@ export default  function Main() {
 
   const random = get_random(popular.results);
   return (
-    <>
+    < div className="   " >
     
     <div className="   relative px-3 grid  pt-[400px]">
       <div  className=" -z-10  w-screen absolute top-0 h-screen">
@@ -80,6 +80,6 @@ export default  function Main() {
     </div>
     <Trending/>
     <Upcoming/>
-    </>
+    </div>
   );
 };

@@ -30,7 +30,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      {!search || !showSearch   ? (
+      {!search    ? (
         <>
           {/* <Hero /> */}
           <Suspense fallback={<InSkel/>}>
@@ -39,8 +39,8 @@ export default function Home() {
       
         </>
       ) : (
-        <div className="sticky  pt-10 ">
-          <div className="  relative px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 py-4 ">
+        <div className="sticky min-h-[300px]  pt-10 ">
+          <div className="   relative px-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2 py-4 ">
             {searchArray?.results?.map((item) => (
               <Card key={item.id} movie={item} />
             ))}

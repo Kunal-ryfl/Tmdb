@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
     "@next/font": "13.1.5",
     "@tailwindcss/line-clamp": "^0.4.4",
     "class-variance-authority": "^0.5.2",
