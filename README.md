@@ -1,6 +1,6 @@
 ## TMDB
 
-![Screenshot (184)](https://user-images.githubusercontent.com/73430123/219934547-309d4609-6729-44e6-8d4a-8f4bc7f22b1f.png)
+![Screenshot (302)](https://user-images.githubusercontent.com/73430123/235165423-ac993a04-6b5a-4e7f-bd75-cc6500614bd3.png)
 
 Get a look of this project [**LIVE**](https://tmdb-hant.vercel.app/)
 
