@@ -15,7 +15,7 @@ export default function Trending() {
   // const {trending} = useStateContext();
   return (
     <div className=" relative  overflow-hidden px-2">
-      <h2 className=" text-base sm:text-xl py-4 px-2 font-bold ">Trending</h2>
+      <h2 className=" text-base sm:text-xl py-4 px-2 font-semibold ">Trending</h2>
       <div className=" overflow-auto whitespace-nowrap ">
         {data.results?.map((item) => (
           <InlineCard key={item.id} movie={item} />

@@ -2,8 +2,12 @@
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { Fragment, useState } from "react";
+import { useRouter } from 'next/navigation'
+import {AiOutlineClose} from "react-icons/ai"
 
 export default function MyModal({ movie }) {
+  const router = useRouter()
+
   let [isOpen, setIsOpen] = useState(true);
 
   function closeModal() {
@@ -25,9 +29,10 @@ export default function MyModal({ movie }) {
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>
+  
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
         <div className="fixed inset-0   backdrop-blur  bg-white/10  " aria-hidden="true" />
-
+  
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -54,7 +59,9 @@ export default function MyModal({ movie }) {
                 
                 <Dialog.Panel className=" w-full md:max-w-3xl relative transform overflow-hidden  rounded-lg bg-neutral-900 text-left align-middle shadow-xl transition-all">
                   
-
+                <button type="button" className=" absolute right-2 top-2 z-30"  onClick={() => router.back()}>
+      <AiOutlineClose className=" text-5xl rounded-full p-2   bg-black/50 "/>
+    </button>
                                     <div className="  w-full  relative    aspect-video  ">
 
 <Image
@@ -69,7 +76,7 @@ export default function MyModal({ movie }) {
      <div className=" px-3 pb-3 md:px-6 md:pb-6 pt-3   " >
                   <Dialog.Title
                     as="h3"
-                    className="text-lg  font-semibold   leading-6 text-white"
+                    className=" text-xl md:text-3xl  font-semibold   leading-6 text-white"
                   >
                     {movie.title}
                   </Dialog.Title>

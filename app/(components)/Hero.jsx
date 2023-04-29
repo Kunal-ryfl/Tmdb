@@ -46,12 +46,13 @@ export default  function Main() {
     < div className="   " >
     
     <div className="   relative px-3 grid  pt-[400px]">
-      <div  className=" -z-10  w-screen absolute top-0 h-screen">
+      <div  className=" -z-10  w-screen absolute  top-0 h-screen">
 
 
   <Image src={`https://image.tmdb.org/t/p/original${random.backdrop_path}`} fill alt="" priority className="    object-cover -z-10  "/>
 
-      <div className=" opacity-100  bg-gradient-to-b  from-transparent from-30% via-black via-40% to-neutral-900 to-10%  h-screen  w-screen" />
+      <div className=" opacity-100 absolute top-0  bg-gradient-to-b  from-black/50 from-20% via-black via-80% to-neutral-900 to-100%  h-screen  w-screen" ></div>
+      
       </div>
 
 
@@ -65,10 +66,10 @@ export default  function Main() {
         </div>
         <p className=" my-4 line-clamp-4 text-sm text-gray-300 md:text-base">{random.overview}</p>
        <Link href={`movies/${random.id}`}>
-        <button className="  bg-white flex items-center rounded px-2 py-1 font-bold text-black"><BsLink45Deg /> Open</button>
+        <button className="  bg-white flex items-center rounded px-2 py-1 font-bold text-black"><BsLink45Deg  className="  "/> Open</button>
        </Link>
       </div>
-      <h2 className=" text-base sm:text-xl py-4 px-2 font-bold ">Popular</h2>
+      <h2 className=" text-base sm:text-xl py-4 px-2  font-semibold ">Popular</h2>
 
       <div className=" overflow-auto whitespace-nowrap ">
           {popular.results?.map((item) => (

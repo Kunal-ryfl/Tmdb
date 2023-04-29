@@ -17,7 +17,7 @@ export default  function Upcoming() {
   const res = use(a);
   return (
     <div className="px-2">
-      <h2 className="  text-base sm:text-xl py-4 px-2 font-bold ">
+      <h2 className="  text-base sm:text-xl py-4 px-2 font-semibold ">
         {" "}
         Upcomming
       </h2>
