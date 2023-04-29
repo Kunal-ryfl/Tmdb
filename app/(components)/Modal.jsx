@@ -26,7 +26,7 @@ export default function MyModal({ movie }) {
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
-        <div className="fixed inset-0 backdrop-blur bg-black/30 " aria-hidden="true" />
+        <div className="fixed inset-0   backdrop-blur  bg-white/10  " aria-hidden="true" />
 
           <Transition.Child
             as={Fragment}
@@ -40,7 +40,7 @@ export default function MyModal({ movie }) {
             <div className="fixed inset-0 bg-black bg-opacity-25" />
           </Transition.Child>
 
-          <div className="fixed inset-0 overflow-y-auto">
+          <div className="fixed inset-0   overflow-y-auto">
             <div className="flex min-h-full  items-end md:items-center justify-center md:p-4 text-center">
               <Transition.Child
                 as={Fragment}

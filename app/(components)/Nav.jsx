@@ -32,7 +32,7 @@ export default function Nav() {
     clickSearch,
   } = useStateContext();
   return (
-    <div  className={ color?"   py-2 px-4 bg-neutral-900 fixed z-50 w-full  top-0 flex  sm:flex-row items-center   justify-between ":" py-2 px-4 fixed justify-between items-center   z-50 w-full  top-0 flex  sm:flex-row    "}>  
+    <div  className={ color?"   py-2 px-4 bg-neutral-900 fixed z-10 w-full  top-0 flex  sm:flex-row items-center   justify-between ":" py-2 px-4 fixed justify-between items-center   z-10 w-full  top-0 flex  sm:flex-row    "}>  
           
           <RiMovie2Line className="  text-2xl  md:text-4xl fill-red-700"/>
           
