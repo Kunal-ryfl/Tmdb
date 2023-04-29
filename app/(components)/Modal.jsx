@@ -50,7 +50,7 @@ export default function MyModal({ movie }) {
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
-                enterFrom="opacity-0 scale-95"
+                enterFrom="opacity-0  scale-95"
                 enterTo="opacity-100 scale-100"
                 leave="ease-in duration-200"
                 leaveFrom="opacity-100 scale-100"
@@ -60,9 +60,11 @@ export default function MyModal({ movie }) {
                 <Dialog.Panel className=" w-full md:max-w-3xl relative transform overflow-hidden  rounded-lg bg-neutral-900 text-left align-middle shadow-xl transition-all">
                   
                 <button type="button" className=" absolute right-2 top-2 z-30"  onClick={() => router.back()}>
-      <AiOutlineClose className=" text-5xl rounded-full p-2   bg-black/50 "/>
+      <AiOutlineClose className=" text-4xl rounded-full p-2 hover:bg-neutral-900 bg-neutral-900/50 "/>
     </button>
-                                    <div className="  w-full  relative    aspect-video  ">
+  <div className="  w-full  relative    aspect-video  ">
+
+
 
 <Image
   priority
@@ -73,7 +75,7 @@ export default function MyModal({ movie }) {
   />
   </div>
 
-     <div className=" px-3 pb-3 md:px-6 md:pb-6 pt-3   " >
+     <div className=" px-3 pb-3 md:px-6 md:pb-6 z-20 pt-3   " >
                   <Dialog.Title
                     as="h3"
                     className=" text-xl md:text-3xl  font-semibold   leading-6 text-white"
@@ -83,7 +85,7 @@ export default function MyModal({ movie }) {
                   <Dialog.Description>
                     <div className=" gap-3  my-3 items-end font-semibold text-sm flex ">
                       <p className="  text-green-600 ">
-                        {movie.vote_average} average
+                        {Math.round( movie.vote_average*10)}% votes
                       </p>
                       <p>{movie.release_date}</p>
                       <p  className=" border-[1px] text-center  w-8 border-neutral-400   text-neutral-400  text-xs p-1 uppercase">{movie.original_language}</p>

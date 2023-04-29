@@ -60,7 +60,7 @@ export default  function Main() {
         <h1 className=" text-[24px] mb-2  md:text-3xl font-bold">{random.title}</h1> 
         <div className="  font-semibold text-sm flex " >
 
-        <p className="  text-green-600 mr-3"> {random.vote_average} average</p>
+        <p className="  text-green-600 mr-3"> {Math.round( random.vote_average*10)}% votes</p>
         <p>{random.release_date}</p>
         
         </div>
