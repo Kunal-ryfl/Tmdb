@@ -3,7 +3,7 @@ import InlineCard from "./InlineCard";
 import {use} from 'react'
 async function getTrending() {
   const res = await fetch(
-    `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.NEXT_PUBLIC_API}`,
+    `https://api.themoviedb.org/3/trending/movie/day?api_key=${process.env.NEXT_PUBLIC_API}`,
     { next: { revalidate: 180 } }
   );
   return res.json();
