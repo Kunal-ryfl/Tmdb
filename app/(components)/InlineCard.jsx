@@ -9,6 +9,8 @@ const InlineCard = ({ movie: { title, poster_path, backdrop_path, id, release_da
           {poster_path && (
             <Link href={`/movies/${id}`}>
             <Image
+              placeholder='blur'
+              blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8sv5KPQAHjgLYUdlBYAAAAABJRU5ErkJggg=="
               src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
               alt="img"
               fill

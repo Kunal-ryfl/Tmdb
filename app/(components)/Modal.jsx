@@ -67,9 +67,10 @@ export default function MyModal({ movie }) {
 
 
 <Image
-  priority
   src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
   fill
+  placeholder='blur'
+  blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8sv5KPQAHjgLYUdlBYAAAAABJRU5ErkJggg=="
   alt=""
   className="  "
   />
