@@ -82,9 +82,9 @@ export default function Main() {
         </h2>
 
         <div className=" overflow-auto whitespace-nowrap ">
-          {popular.results?.map((item) => {
-            <InlineCard key={item.id} movie={item} />;
-          })}
+          {popular.results?.map((item) => (
+            <InlineCard key={item.id} movie={item} />
+          ))}
         </div>
       </div>
       <Trending />

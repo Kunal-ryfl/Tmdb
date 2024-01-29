@@ -104,7 +104,7 @@ export default function MyModal({ movie }) {
   /> */}
                   </div>
 
-                  <div className=" px-3 pb-3 md:px-6 md:pb-6 z-20 pt-3   ">
+                  <div className="  px-4 pb-3 md:px-6 md:pb-6 z-20 pt-4   ">
                     <Dialog.Title
                       as="h3"
                       className=" text-xl md:text-3xl  font-semibold   leading-6 text-white"
@@ -124,7 +124,7 @@ export default function MyModal({ movie }) {
                     </Dialog.Description>
 
                     <div className="mt-2">
-                      <p className="line-clamp-3 text-xs text-slate-700 dark:text-slate-50 sm:text-sm">
+                      <p className="line-clamp-3 font-light text-xs text-slate-700 dark:text-slate-50 sm:text-sm">
                         {movie.overview}
                       </p>
                     </div>
