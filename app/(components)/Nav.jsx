@@ -1,61 +1,75 @@
 "use client";
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useStateContext } from "../../context/StateContext";
 import { AiOutlineSearch } from "react-icons/ai";
-import {AiOutlineClose } from "react-icons/ai";
+import { RiMovie2Line } from "react-icons/ri";
 
-import {RiMovie2Line} from 'react-icons/ri'
 export default function Nav() {
+  const [show, setShow] = useState(false);
+  const [color, setColor] = useState(false);
+  const inputRef = useRef(null);
 
-  const [show, setShow] = useState(false); 
-
-  const [color, setColor] = useState(false); 
   const changeColor = () => {
     if (window.scrollY >= 30) {
       setColor(true);
     } else {
       setColor(false);
-    } 
-  }
+    }
+  };
+
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // window is available
+    if (typeof window !== "undefined") {
       window.addEventListener("scroll", changeColor);
     }
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("scroll", changeColor);
+      }
+    };
   }, []);
 
-  const {
-    active,
-    search,
-    submitContact,
-    showSearch,
-    clickSearch,
-  } = useStateContext();
-  return (
-    <div  className={ color?"   py-2 px-4 bg-neutral-900 fixed z-10 w-full  top-0 flex  sm:flex-row items-center   justify-between ":" py-2 px-4 fixed justify-between items-center   z-10 w-full  top-0 flex  sm:flex-row    "}>  
-          
-          <RiMovie2Line className="  text-2xl  md:text-4xl fill-red-700"/>
-          
-             {
-              !show?
-               <AiOutlineSearch onClick={()=>setShow(!show)} className=" z-10 text-xl cursor-pointer right-6 bottom-[18px] absolute"/>
-              :<AiOutlineClose onClick={()=>setShow(!show)} className=" z-10 text-xl cursor-pointer right-6 bottom-[18px] absolute"/>
-             }
-          
-      
+  useEffect(() => {
+    if (show && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [show]);
 
-           <form className={show?"   transition duration-5 ease-in-out  relative ":" w-0 overflow-hidden transition duration-5 ease-in-out  relative "} onChange={submitContact}>
-              <input
-                autoComplete="off"
-                className="    pl-1 py-2 text-white w-40  text-sm md:w-60  rounded-sm    bg-transparent/5   border-[1px] border-white backdrop-blur-md  "
-                id="name"
-                placeholder="search movies"
-                />
-           
-            </form>
-                 
-        
-      
+  const { submitContact } = useStateContext();
+
+  return (
+    <div
+      className={
+        color
+          ? "py-2 px-4 bg-neutral-900 fixed z-10 w-full top-0 flex sm:flex-row items-center justify-between"
+          : "py-2 px-4 fixed justify-between items-center z-10 w-full top-0 flex sm:flex-row"
+      }
+    >
+      <div className="flex items-center gap-3">
+        <RiMovie2Line className="text-2xl md:text-4xl fill-red-700" />
+      </div>
+      <div className="relative flex items-center">
+        <div className="relative">
+          <AiOutlineSearch
+            onClick={() => setShow(!show)}
+            className="z-10 text-xl cursor-pointer absolute left-3 top-1/2 transform -translate-y-1/2 transition-transform duration-500"
+          />
+          <form
+            className={`transition-all duration-500 ease-in-out ${
+              show ? "w-40 md:w-60" : "w-10"
+            } overflow-hidden`}
+            onChange={submitContact}
+          >
+            <input
+              autoComplete="off"
+              className="pl-10 py-2 pr-2 text-white text-sm outline-none rounded-sm bg-transparent/5 border-[3px] border-blue-300 backdrop-blur-md w-full transition-all duration-500 ease-in-out"
+              id="name"
+              placeholder="search movies"
+              ref={inputRef}
+              style={{ opacity: show ? 1 : 0 }}
+            />
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

@@ -63,7 +63,7 @@ export default function Main() {
           </h1>
           <div className="  font-semibold text-sm flex ">
             <p className="  text-green-600 mr-3">
-              {" "}
+           
               {Math.round(random.vote_average * 10)}% votes
             </p>
             <p>{random.release_date}</p>

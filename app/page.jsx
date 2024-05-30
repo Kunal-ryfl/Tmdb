@@ -8,7 +8,9 @@ import { useStateContext } from "../context/StateContext";
 import Card from "./(components)/Card";
 import InSkel from '../app/(components)/InSkel'
 import Skeleton from "./(components)/Skeleton";
+
 export default function Home() {
+
   const { search, searchArray ,showSearch} = useStateContext();
 
   // const [mounted, setMounted] = useState(false)
@@ -25,7 +27,6 @@ export default function Home() {
 
 
   const DataComponent = React.lazy(() => import('./(components)/Hero'));
-
 
   return (
     <>

@@ -25,8 +25,7 @@ const  clickSearch =  () => {
 }
 
 const submitContact = async (event) => {
-  // event.preventDefault();
-  // alert(`So your name is ${event.target.name.value}?`);
+  
   const query = event.target.value;
   
   setSearch(true)

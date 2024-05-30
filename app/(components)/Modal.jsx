@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { Fragment, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AiOutlineClose } from "react-icons/ai";
+
 import ReactPlayer from "react-player/lazy";
 
 export default function MyModal({ movie }) {
