@@ -3,10 +3,14 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "../../lib/utils";
+import { useStateContext } from "../../context/StateContext";
+
+
 const InlineCard = ({
   movie: { title, poster_path, backdrop_path, id, release_date },
 }) => {
   const [fade, setFade] = useState(false);
+  const { add } = useStateContext();
 
   function onClick() {
     setFade(true);
@@ -36,8 +40,10 @@ const InlineCard = ({
                 }
               )}
             />
+
           </Link>
         )}
+
       </div>
     </>
   );

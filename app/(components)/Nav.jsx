@@ -3,11 +3,25 @@ import React, { useState, useEffect, useRef } from "react";
 import { useStateContext } from "../../context/StateContext";
 import { AiOutlineSearch } from "react-icons/ai";
 import { RiMovie2Line } from "react-icons/ri";
+import Link from "next/link";
+import { FaRegUserCircle } from "react-icons/fa";
+
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  useUser,
+} from "@clerk/nextjs";
+import { User, UserIcon } from "lucide-react";
 
 export default function Nav() {
   const [show, setShow] = useState(false);
   const [color, setColor] = useState(false);
   const inputRef = useRef(null);
+
+  const { isSignedIn, user, isLoaded } = useUser();
 
   const changeColor = () => {
     if (window.scrollY >= 30) {
@@ -36,6 +50,10 @@ export default function Nav() {
 
   const { submitContact } = useStateContext();
 
+  // if (!isLoaded) {
+  //   return <p>loading</p>;
+  // }
+
   return (
     <div
       className={
@@ -46,8 +64,26 @@ export default function Nav() {
     >
       <div className="flex items-center gap-3">
         <RiMovie2Line className="text-2xl md:text-4xl fill-red-700" />
+        {/* <List /> */}
+
+        <Link  href={"/mylist"}>
+        <button className="rounded-md  bg-black bg-opacity-20 px-4 py-2 text-[13px] font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+              My List
+            </button></Link>
+         
+        {/* {isSignedIn ? (
+          <UserButton />
+        ) : (
+          <SignInButton>
+            <button className="rounded-md  bg-red-600  px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+              sign in
+            </button>
+
+            <User className=" cursor-pointer" />
+          </SignInButton>
+        )} */}
       </div>
-      <div className="relative flex items-center">
+      <div className="relative flex items-center gap-3">
         <div className="relative">
           <AiOutlineSearch
             onClick={() => setShow(!show)}
@@ -69,6 +105,16 @@ export default function Nav() {
             />
           </form>
         </div>
+
+        {isSignedIn ? (
+          <UserButton />
+        ) : (
+          <SignInButton>
+            
+<FaRegUserCircle  className=" text-xl cursor-pointer"/>
+
+          </SignInButton>
+        )}
       </div>
     </div>
   );

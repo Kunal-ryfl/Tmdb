@@ -4,6 +4,7 @@ import Image from "next/image";
 import React, { Fragment, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AiOutlineClose } from "react-icons/ai";
+import { useStateContext } from "../../context/StateContext";
 
 import ReactPlayer from "react-player/lazy";
 
@@ -12,6 +13,7 @@ export default function MyModal({ movie }) {
 
   const [isOpen, setIsOpen] = useState(true);
   const [trailer, setTrailer] = useState("");
+ 
 
   React.useEffect(() => {
     const getShow = async () => {
@@ -139,6 +141,8 @@ export default function MyModal({ movie }) {
                           {item.name}
                         </p>
                       ))}
+
+                     
                     </div>
                   </div>
                 </Dialog.Panel>

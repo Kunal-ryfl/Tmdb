@@ -2,7 +2,6 @@
 import React, { useState, useEffect, Suspense } from "react";
 import Card from "./Card";
 import InlineCard from "./InlineCard";
-import { useStateContext } from "../../context/StateContext";
 import Skeleton from "./Skeleton";
 import { use } from "react";
 import Image from "next/image";
@@ -11,6 +10,8 @@ import Link from "next/link";
 import InSkel from "./InSkel";
 import Trending from "./Trending";
 import Upcoming from "./Upcoming";
+
+
 
 async function getPopular() {
   const res = await fetch(
@@ -21,7 +22,7 @@ async function getPopular() {
 }
 
 function get_random(list) {
-  return list[Math.floor(Math.random() * list.length)];
+  return list[Math.floor(Math.random() * list?.length)];
 }
 
 let a = getPopular();
@@ -30,6 +31,7 @@ export default function Main() {
   // const { popular, search } = useStateContext();
   // const fetch =  await getPopular()
   const popular = use(a);
+
   //  console.log("p = ",popular)
 
   const [mounted, setMounted] = useState(false);
