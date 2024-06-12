@@ -11,7 +11,7 @@ const page =async () => {
  
   const list1 = getList.bind(null,user?.id);
   const list = await list1();
-  console.log(list)
+  // console.log(list)
 
   return (
     <div className="  flex flex-col gap-3 justify-center min-h-screen items-center  p-3">

@@ -7,6 +7,8 @@ import Link from "next/link";
 import { FaRegUserCircle } from "react-icons/fa";
 import { initialProfile } from "../../lib/newUser";
 
+
+
 import {
   ClerkProvider,
   SignInButton,
