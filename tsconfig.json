@@ -29,7 +29,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "app/middleware.js"  ],
+, "app/middleware.js", "app/actions.js"  ],
   "exclude": [
     "node_modules"
   ]

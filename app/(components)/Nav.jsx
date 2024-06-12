@@ -5,6 +5,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { RiMovie2Line } from "react-icons/ri";
 import Link from "next/link";
 import { FaRegUserCircle } from "react-icons/fa";
+import { initialProfile } from "../../lib/newUser";
 
 import {
   ClerkProvider,
@@ -66,11 +67,12 @@ export default function Nav() {
         <RiMovie2Line className="text-2xl md:text-4xl fill-red-700" />
         {/* <List /> */}
 
-        <Link  href={"/mylist"}>
-        <button className="rounded-md  bg-black bg-opacity-20 px-4 py-2 text-[13px] font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-              My List
-            </button></Link>
-         
+        <Link href={"/mylist"}>
+          <button className="rounded-md  bg-black bg-opacity-20 px-4 py-2 text-[13px] font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+            My List
+          </button>
+        </Link>
+
         {/* {isSignedIn ? (
           <UserButton />
         ) : (
@@ -109,11 +111,9 @@ export default function Nav() {
         {isSignedIn ? (
           <UserButton />
         ) : (
-          <SignInButton>
-            
-<FaRegUserCircle  className=" text-xl cursor-pointer"/>
-
-          </SignInButton>
+          <button>
+            <FaRegUserCircle onClick={initialProfile} className=" text-xl cursor-pointer" />
+          </button>
         )}
       </div>
     </div>

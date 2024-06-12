@@ -5,6 +5,8 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { AiOutlineClose } from "react-icons/ai";
 import { useStateContext } from "../../context/StateContext";
+import Starbtn from '../(components)/Starbtn'
+
 
 import ReactPlayer from "react-player/lazy";
 
@@ -141,7 +143,7 @@ export default function MyModal({ movie }) {
                           {item.name}
                         </p>
                       ))}
-
+                    <Starbtn movie={movie}/>                     
                      
                     </div>
                   </div>
