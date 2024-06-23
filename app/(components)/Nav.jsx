@@ -5,9 +5,7 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { RiMovie2Line } from "react-icons/ri";
 import Link from "next/link";
 import { FaRegUserCircle } from "react-icons/fa";
-import { initialProfile } from "../../lib/newUser";
-
-
+import { initialProfile } from "../actions";
 
 import {
   ClerkProvider,
@@ -110,13 +108,17 @@ export default function Nav() {
           </form>
         </div>
 
-        {isSignedIn ? (
-          <UserButton />
-        ) : (
-          <button>
-            <FaRegUserCircle onClick={initialProfile} className=" text-xl cursor-pointer" />
-          </button>
-        )}
+        <form className=" flex items-center justify-center" action={initialProfile}> 
+          {isSignedIn ? (
+            <UserButton />
+          ) : (
+            <button>
+              <FaRegUserCircle
+                className=" text-xl cursor-pointer"
+              />
+            </button>
+          )}
+        </form>
       </div>
     </div>
   );

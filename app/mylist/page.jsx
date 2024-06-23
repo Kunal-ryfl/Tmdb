@@ -1,10 +1,9 @@
 import React from "react";
 import Nav from "../(components)/Nav";
 import Link from "next/link";
-import { initialProfile } from "../../lib/newUser";
 import { getList } from "../actions";
 import MyListMovie from "../(components)/MyListMovie"
-
+import { initialProfile } from "../actions";
 const page =async () => {
   const user = initialProfile()
   // const user1 = await currentUser()
