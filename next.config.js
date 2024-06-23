@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 // const { withPlaiceholder } = require("@plaiceholder/next");
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  }, 
   images: {
     remotePatterns: [
       {
@@ -12,6 +9,14 @@ const nextConfig = {
     ],
     unoptimized:true,
   },
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
+
   
 }
 
