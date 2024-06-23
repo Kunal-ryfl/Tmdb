@@ -1,16 +1,19 @@
 import React from "react";
 import { useAuth } from "@clerk/nextjs";
 import {add,remove} from "../actions"
+import { useState, useEffect } from 'react'
 import { Star } from "lucide-react";
 
+import { check } from "../actions";
 
+const Starbtn =  ({ movie }) => {
 
-
-const Starbtn = ({ movie }) => {
-  
   const {  userId } = useAuth();
    const add1 = add.bind(null,userId,movie?.id)
-   const rem1 = remove.bind(null,userId,movie?.id)
+
+   if(!userId  ){
+    return <></>
+   }
 
 
   return (

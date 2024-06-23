@@ -18,7 +18,8 @@ export async function add(userId, movieId) {
   // console.log(userId)
 
   if ((await check).length > 0) {
-    return;
+    throw new Error("already in list")
+    return ;
   }
 
   const create = await db.movie.create({
@@ -56,13 +57,15 @@ export async function remove(userId, movieId) {
 revalidatePath('/mylist')
 }
 
-export async function getList(userId) {
+export async function getList() {
   
-  // console.log(userId)
+  // console.log("id ",userId)
+
+  const user = await currentUser();
 
   const list = db.movie.findMany({
     where: {
-      userId
+      userId:user?.id
     },
   });
 
@@ -107,3 +110,24 @@ export  async function initialProfile(){
   
     return newProfile;
   };
+
+  export async function check(userId,id) {
+    
+    console.log(userId,id)
+
+    const id1 = ""+id
+
+    const res =  await db.movie.findMany({
+      where:{
+      id:id1,
+        userId
+      }
+     })
+     
+     console.log(res)
+     
+     if(res.length===0) return false;
+
+
+     return true;
+  }
