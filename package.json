@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx prisma db push && npx prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
   },
-  
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  },
   "dependencies": {
     "@clerk/nextjs": "^5.1.6",
     "@clerk/themes": "^2.1.8",
