@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import Footer from "./(components)/Footer";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
-import { Toaster } from "react-hot-toast"
 
 const rw = Inter({
   subsets: ["latin"],
@@ -23,7 +22,6 @@ export default function RootLayout({ children, modal }) {
         <StateContext>
           <body id="next" className=" bg-neutral-900 text-white">
             {children}
-            <Toaster />
             {modal}
             <Footer />
           </body>
