@@ -1,6 +1,7 @@
 import { X } from "lucide-react";
 import React from "react";
 import { remove } from "../actions";
+import Link from "next/link";
 
 async function getMovie(movieId) {
   const res = await fetch(
@@ -15,7 +16,7 @@ const MyListMovie = async ({ movieId, userId }) => {
   //   console.log(data);
   return (
     <div className=" flex justify-between items-center   p-2 border w-full max-w-sm   ">
-      {data?.original_title}
+      <Link href={`/movies/${movieId}`}>{data?.original_title}</Link>
 
       <form className=" cursor-pointer" action={rem1}>
         <button>
