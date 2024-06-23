@@ -45,5 +45,8 @@
     "fs": false,
     "os": false,
     "path": false
-  }
+  },
+  "prisma": {
+  "schema": "db/schema.prisma"
+}
 }
