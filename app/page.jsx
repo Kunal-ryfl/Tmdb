@@ -5,7 +5,6 @@ import Trending from "./(components)/Trending";
 import Upcoming from "./(components)/Upcoming";
 import Hero from "./(components)/Hero";
 import { useStateContext } from "../context/StateContext";
-import Card from "./(components)/Card";
 import InSkel from '../app/(components)/InSkel'
 import Skeleton from "./(components)/Skeleton";
 import InlineCard from "./(components)/InlineCard";
