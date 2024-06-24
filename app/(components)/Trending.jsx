@@ -18,7 +18,7 @@ export default function Trending() {
       <h2 className=" text-base sm:text-xl py-4 px-2 font-semibold ">Trending</h2>
       <div className=" overflow-auto whitespace-nowrap ">
         {data.results?.map((item) => (
-          <InlineCard key={item.id} movie={item} />
+          <InlineCard key={item.id} movie={item}  search={true}/>
         ))}
       </div>
     </div>

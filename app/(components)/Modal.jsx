@@ -48,7 +48,10 @@ export default function MyModal({ movie }) {
           type="button"
           onClick={openModal}
           className="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-        ></button>
+        >
+
+
+        </button>
       </div>
 
       <Transition appear show={isOpen} as={Fragment}>
@@ -95,18 +98,9 @@ export default function MyModal({ movie }) {
                       height="100%"
                       muted={true}
                       controls={true}
-                      // url="https://www.youtube.com/watch?v=LXb3EKWsInQ"
                       url={`https://www.youtube.com/watch?v=${trailer}`}
                     />
 
-                    {/* <Image
-  src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-  fill
-  placeholder='blur'
-  blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mO8sv5KPQAHjgLYUdlBYAAAAABJRU5ErkJggg=="
-  alt=""
-  className="  "
-  /> */}
                   </div>
 
                   <div className="  px-4 pb-3 md:px-6 md:pb-6 z-20 pt-4   ">

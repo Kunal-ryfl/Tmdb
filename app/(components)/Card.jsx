@@ -1,17 +1,65 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { cn } from "../../lib/utils";
+
+
 const Card = ({ movie: { title, poster_path, id, release_date } }) => {
   const [fade, setFade] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const [trailer, setTrailer] = useState("");
+  const [movie, setMovie] = useState("");
 
   function onClick() {
     setFade(true);
     setTimeout(function () {
       setFade(false);
     }, 150);
+;
+
+ useEffect(() => {
+      const getShow = async () => {
+        const response = await fetch(
+          `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API}&language=en-US&append_to_response=videos`
+        );
+        const data = await response.json();
+        if (data?.videos) {
+          const trailerIndex = data.videos.results.findIndex(
+            (item) => item.type === "Trailer"
+          );
+          setTrailer(data.videos?.results[trailerIndex]?.key ?? "");
+        }
+      };
+  
+      async function getMovie() {
+        const res = await fetch(
+          `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.NEXT_PUBLIC_API}`
+        );
+        // return res.json();
+        const data = await res.json();
+        // console.log(data)
+        setMovie(data);
+      }
+  
+      getMovie();
+  
+      getShow();
+    }, []);
+  
+    function closeModal() {
+      setIsOpen(false);
+    }
+  
+    function openModal() {
+      setIsOpen(true);
+    }
+  
+
+
+
   }
   return (
     <>
