@@ -6,8 +6,6 @@ import { useRouter } from "next/navigation";
 import { AiOutlineClose } from "react-icons/ai";
 import { useStateContext } from "../../context/StateContext";
 import Starbtn from '../(components)/Starbtn'
-
-
 import ReactPlayer from "react-player/lazy";
 
 export default function MyModal({ movie }) {
@@ -15,7 +13,7 @@ export default function MyModal({ movie }) {
 
   const [isOpen, setIsOpen] = useState(true);
   const [trailer, setTrailer] = useState("");
- 
+
 
   React.useEffect(() => {
     const getShow = async () => {

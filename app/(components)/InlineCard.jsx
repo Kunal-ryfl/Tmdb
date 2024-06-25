@@ -11,8 +11,8 @@ import { useRouter } from "next/navigation";
 import { AiOutlineClose } from "react-icons/ai";
 // import { useStateContext } from "../../context/StateContext";
 import Starbtn from "../(components)/Starbtn";
-
 import ReactPlayer from "react-player/lazy";
+import toast from "react-hot-toast";
 
 const InlineCard = ({
   movie: { title, poster_path, backdrop_path, id, release_date },
@@ -26,7 +26,6 @@ const InlineCard = ({
       setFade(false);
     }, 150);
   }
-
 
   const [isOpen, setIsOpen] = useState(false);
 
