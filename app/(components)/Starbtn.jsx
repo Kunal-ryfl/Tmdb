@@ -19,11 +19,18 @@ const Starbtn = ({ movie }) => {
       <form
         className="   bottom-28 absolute sm:bottom-5 right-5 "
         action={async() => {
+          
+          const to = toast.loading("adding...",{})
+
           const res = await add1();
+
+
           if(res?.error){
-            toast.error(res?.error);
+            toast.error(res?.error,{id
+              :to
+            });
           }
-          else toast.success("added to list");
+          else toast.success("added to list",{id:to});
 
         }}
       >
