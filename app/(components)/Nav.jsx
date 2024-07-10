@@ -8,14 +8,10 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { initialProfile } from "../actions";
 
 import {
-  ClerkProvider,
-  SignInButton,
-  SignedIn,
-  SignedOut,
+
   UserButton,
   useUser,
 } from "@clerk/nextjs";
-import { User, UserIcon } from "lucide-react";
 
 export default function Nav() {
   const [show, setShow] = useState(false);
@@ -69,21 +65,9 @@ export default function Nav() {
 
         <Link href={"/mylist"}>
           <button className="rounded-md  bg-black bg-opacity-20 px-4 py-2 text-[13px] font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-            My List
+             My List
           </button>
         </Link>
-
-        {/* {isSignedIn ? (
-          <UserButton />
-        ) : (
-          <SignInButton>
-            <button className="rounded-md  bg-red-600  px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-              sign in
-            </button>
-
-            <User className=" cursor-pointer" />
-          </SignInButton>
-        )} */}
       </div>
       <div className="relative flex items-center gap-3">
         <div className="relative">
